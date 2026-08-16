@@ -1,0 +1,869 @@
+/*
+ * style.css
+ *
+ * Main stylesheet for the S.M. Shreyas portfolio website.
+ *
+ * Responsibilities:
+ *
+ *     - Global design system
+ *     - Typography
+ *     - Colors
+ *     - Layout
+ *     - Navigation
+ *     - Section styling
+ *     - Responsive behavior
+ */
+
+
+/* ==========================================================================
+   1. Design System
+   ========================================================================== */
+
+:root {
+
+    /* Colors */
+
+    --color-background: #f7f8fa;
+    --color-surface: #ffffff;
+    --color-surface-alt: #eef1f5;
+
+    --color-hero: #111827;
+    --color-hero-surface: #1f2937;
+
+    --color-text: #172033;
+    --color-text-muted: #667085;
+
+    --color-text-light: #f8fafc;
+    --color-text-light-muted: #cbd5e1;
+
+    --color-accent: #2563eb;
+    --color-accent-hover: #1d4ed8;
+
+    --color-border: #e2e8f0;
+
+
+    /* Typography */
+
+    --font-primary:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+
+    /* Layout */
+
+    --content-width: 1120px;
+    --section-padding: 96px;
+
+
+    /* Visual */
+
+    --border-radius-small: 8px;
+    --border-radius-medium: 14px;
+
+    --shadow-small:
+        0 4px 12px rgba(15, 23, 42, 0.06);
+
+    --shadow-medium:
+        0 12px 30px rgba(15, 23, 42, 0.10);
+
+}
+
+
+/* ==========================================================================
+   2. Reset
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    font-family: var(--font-primary);
+    line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   3. Base Elements
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+
+a {
+    color: inherit;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* ==========================================================================
+   4. Navigation
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+nav {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 28px;
+
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+    padding: 20px 24px;
+}
+
+
+nav a {
+    color: var(--color-text-muted);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+
+/* ==========================================================================
+   5. Common Section Layout
+   ========================================================================== */
+
+section {
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+
+    padding:
+        var(--section-padding)
+        24px;
+}
+
+
+section h2 {
+    margin-bottom: 24px;
+
+    font-size: 2rem;
+}
+
+
+/* ==========================================================================
+   6. Hero Section
+   ========================================================================== */
+
+#home {
+    position: relative;
+
+    max-width: none;
+    min-height: calc(100vh - 73px);
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        100px
+        max(24px, calc((100vw - var(--content-width)) / 2));
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(37, 99, 235, 0.18),
+            transparent 35%
+        ),
+        var(--color-hero);
+
+    color: var(--color-text-light);
+}
+
+
+/*
+ * Subtle technical grid.
+ *
+ * This gives the hero a slightly data/engineering-oriented
+ * visual identity without becoming visually distracting.
+ */
+
+#home::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 48px 48px;
+
+    pointer-events: none;
+}
+
+
+/*
+ * Main hero content.
+ */
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    max-width: 760px;
+}
+
+
+/*
+ * Small professional identifier above the name.
+ */
+
+.hero-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    color: #93c5fd;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+}
+
+
+/*
+ * Small line before the eyebrow text.
+ */
+
+.hero-eyebrow::before {
+    content: "";
+
+    width: 32px;
+    height: 2px;
+
+    margin-right: 12px;
+
+    background-color: #60a5fa;
+}
+
+
+/*
+ * Main name.
+ */
+
+#home h1 {
+    margin-bottom: 16px;
+
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+
+    font-weight: 750;
+
+    letter-spacing: -0.055em;
+
+    line-height: 0.95;
+}
+
+
+/*
+ * Professional headline.
+ */
+
+#home h2 {
+    margin-bottom: 28px;
+
+    color: #cbd5e1;
+
+    font-size: clamp(1.35rem, 3vw, 2rem);
+
+    font-weight: 500;
+
+    letter-spacing: -0.02em;
+}
+
+
+#home h2 span {
+    margin: 0 8px;
+
+    color: #60a5fa;
+}
+
+
+/*
+ * Main description.
+ */
+
+.hero-description {
+    max-width: 650px;
+
+    margin-bottom: 36px;
+
+    color: var(--color-text-light-muted);
+
+    font-size: clamp(1rem, 2vw, 1.15rem);
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================================
+   Hero Actions
+   ========================================================================== */
+
+.hero-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+
+    padding: 13px 22px;
+
+    border-radius: var(--border-radius-small);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+
+/*
+ * Primary call-to-action.
+ */
+
+.button-primary {
+    background-color: var(--color-accent);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+.button-primary:hover {
+    background-color: var(--color-accent-hover);
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.35);
+}
+
+
+/*
+ * Secondary call-to-action.
+ */
+
+.button-secondary {
+    border: 1px solid #475569;
+
+    background-color: rgba(255, 255, 255, 0.03);
+
+    color: #f8fafc;
+}
+
+
+.button-secondary:hover {
+    border-color: #64748b;
+
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================================
+   Hero External Links
+   ========================================================================== */
+
+.hero-links {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    color: #94a3b8;
+
+    font-size: 0.9rem;
+}
+
+
+.hero-links a {
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.hero-links a:hover {
+    color: #93c5fd;
+}
+
+
+.hero-links span {
+    color: #475569;
+}
+
+
+/* ==========================================================================
+   Hero Scroll Indicator
+   ========================================================================== */
+
+.hero-scroll-indicator {
+    position: absolute;
+
+    right: 40px;
+    bottom: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 6px;
+
+    color: white;
+
+    font-size: 0.9rem;
+
+    z-index: 9999;
+}
+
+
+.scroll-arrow {
+    color: #93c5fd;
+
+    font-size: 1.2rem;
+
+    animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+
+
+@keyframes scroll-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+}
+
+
+/* ==========================================================================
+   7. Buttons / Links
+   ========================================================================== */
+
+#home a {
+    display: inline-block;
+
+    margin-right: 12px;
+    margin-bottom: 12px;
+
+    padding: 12px 20px;
+
+    border-radius: var(--border-radius-small);
+
+    background-color: var(--color-accent);
+
+    color: white;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#home a:hover {
+    background-color: var(--color-accent-hover);
+
+    transform: translateY(-2px);
+}
+
+
+#home a:last-child {
+    background-color: transparent;
+
+    border: 1px solid #475569;
+}
+
+
+#home a:last-child:hover {
+    background-color: var(--color-hero-surface);
+}
+
+
+/* ==========================================================================
+   8. About / Experience
+   ========================================================================== */
+
+#about,
+#experience,
+#contact {
+    background-color: var(--color-background);
+}
+
+
+#about p {
+    max-width: 760px;
+
+    color: var(--color-text-muted);
+
+    font-size: 1.05rem;
+}
+
+
+/* ==========================================================================
+   9. Skills
+   ========================================================================== */
+
+#skills {
+    background-color: var(--color-surface);
+}
+
+
+#skills ul {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+#skills li {
+    padding: 10px 16px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 999px;
+
+    background-color: var(--color-surface-alt);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+
+/* ==========================================================================
+   10. Experience
+   ========================================================================== */
+
+#experience article {
+    margin-bottom: 28px;
+
+    padding: 24px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--border-radius-medium);
+
+    background-color: var(--color-surface);
+
+    box-shadow: var(--shadow-small);
+}
+
+
+#experience article h3 {
+    margin-bottom: 8px;
+}
+
+
+#experience article p {
+    margin-bottom: 4px;
+
+    color: var(--color-text-muted);
+}
+
+
+/* ==========================================================================
+   11. Projects
+   ========================================================================== */
+
+#projects {
+    background-color: var(--color-surface);
+}
+
+
+#projects article {
+    margin-bottom: 24px;
+
+    padding: 28px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--border-radius-medium);
+
+    background-color: var(--color-surface);
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+#projects article:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+#projects article h3 {
+    margin-bottom: 12px;
+}
+
+
+#projects article p {
+    margin-bottom: 0;
+
+    color: var(--color-text-muted);
+}
+
+
+/* ==========================================================================
+   12. Contact
+   ========================================================================== */
+
+#contact a {
+    margin-right: 20px;
+
+    color: var(--color-accent);
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   13. Footer
+   ========================================================================== */
+
+footer {
+    padding: 28px 24px;
+
+    background-color: var(--color-hero);
+
+    color: var(--color-text-light-muted);
+
+    text-align: center;
+}
+
+
+footer p {
+    margin: 0;
+
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   14. Responsive Layout
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    #home {
+        min-height: calc(100vh - 58px);
+
+        padding:
+            80px
+            20px;
+    }
+
+
+    #home h1 {
+        font-size: clamp(3rem, 16vw, 4.5rem);
+
+        letter-spacing: -0.05em;
+    }
+
+
+    #home h2 {
+        font-size: 1.25rem;
+    }
+
+
+    .hero-description {
+        font-size: 1rem;
+
+        line-height: 1.7;
+    }
+
+
+    .hero-actions {
+        width: 100%;
+    }
+
+
+    .button {
+        flex: 1;
+
+        min-width: 140px;
+    }
+
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+
+    nav {
+        justify-content: center;
+
+        gap: 16px;
+
+        overflow-x: auto;
+
+        padding: 16px;
+    }
+
+
+    nav a {
+        flex-shrink: 0;
+
+        font-size: 0.85rem;
+    }
+
+
+    section {
+        padding:
+            72px
+            20px;
+    }
+
+
+    #home {
+        min-height: calc(100vh - 58px);
+
+        padding:
+            80px
+            20px;
+    }
+
+
+    #home h1 {
+        font-size: clamp(2.75rem, 14vw, 4rem);
+    }
+
+
+    #home h2 {
+        font-size: 1.3rem;
+    }
+
+
+    #home p:not(:first-child) {
+        font-size: 1rem;
+    }
+
+
+    section h2 {
+        font-size: 1.75rem;
+    }
+
+}
