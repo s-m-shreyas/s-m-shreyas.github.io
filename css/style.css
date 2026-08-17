@@ -84,6 +84,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 
@@ -540,53 +541,6 @@ section h2 {
 
 
 /* ==========================================================================
-   7. Buttons / Links
-   ========================================================================== */
-
-#home a {
-    display: inline-block;
-
-    margin-right: 12px;
-    margin-bottom: 12px;
-
-    padding: 12px 20px;
-
-    border-radius: var(--border-radius-small);
-
-    background-color: var(--color-accent);
-
-    color: white;
-
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-
-#home a:hover {
-    background-color: var(--color-accent-hover);
-
-    transform: translateY(-2px);
-}
-
-
-#home a:last-child {
-    background-color: transparent;
-
-    border: 1px solid #475569;
-}
-
-
-#home a:last-child:hover {
-    background-color: var(--color-hero-surface);
-}
-
-
-/* ==========================================================================
    8. About / Experience
    ========================================================================== */
 
@@ -738,6 +692,32 @@ section h2 {
 
 #contact a:hover {
     text-decoration: underline;
+}
+
+.back-to-top-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
+#contact .back-to-top {
+    margin-right: 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+#contact .back-to-top:hover {
+    color: var(--color-accent);
+
+    text-decoration: none;
 }
 
 
