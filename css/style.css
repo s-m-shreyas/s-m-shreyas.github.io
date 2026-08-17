@@ -313,18 +313,35 @@ section h2 {
  */
 
 #home h1 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700;
     margin-bottom: 16px;
-
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
-
-    font-weight: 750;
-
-    letter-spacing: -0.055em;
-
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    letter-spacing: -0.02em;
     line-height: 0.95;
+    color: #00ff5e;
 }
 
+/* ==========================================================================
+   Typing Effect - Blinking Cursor
+   ========================================================================== */
 
+.cursor-blink {
+    display: inline-block;
+    font-weight: 400;
+    color: #00ff5e;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
 /*
  * Professional headline.
  */
@@ -543,6 +560,45 @@ section h2 {
 .bounce-arrow {
     display: inline-block;
     animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Terminal Glow Effect (Pulsing)
+   ========================================================================== */
+
+@keyframes terminal-glow {
+    0%, 100% {
+        /* Fully bright and glowing */
+        text-shadow: 0 0 8px #22c55e, 
+                     0 0 15px #22c55e, 
+                     0 0 30px rgba(34, 197, 94, 0.6);
+        opacity: 1;
+    }
+    50% {
+        /* Dimmer, soft glow */
+        text-shadow: 0 0 2px #22c55e, 
+                     0 0 8px #22c55e, 
+                     0 0 15px rgba(34, 197, 94, 0.2);
+        opacity: 0.85;
+    }
+}
+
+.glow-effect {
+    animation: terminal-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.6));
+    }
+}
+
+#home h1 {
+    /* ... keep the gradient code from Option 3 ... */
+    animation: glow-pulse 3s ease-in-out infinite;
 }
 
 

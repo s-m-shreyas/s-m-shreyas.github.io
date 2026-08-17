@@ -96,3 +96,31 @@ function showToast(message) {
         setTimeout(() => toast.remove(), 300);
     }, 2500);
 }
+
+// ================================================================
+// Typewriter Effect - Types ONCE, cursor blinks forever
+// ================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const text = "S.M. Shreyas";
+    const typedElement = document.getElementById('typed-name');
+    let index = 0;
+    const typingSpeed = 100; // How fast each letter appears (milliseconds)
+
+    function typeEffect() {
+    if (index < text.length) {
+        typedElement.textContent = text.substring(0, index + 1);
+        index++;
+        setTimeout(typeEffect, typingSpeed);
+    } else {
+        // 🔥 ADD THIS SINGLE LINE:
+        // Adds the pulsing glow class as soon as "S.M. Shreyas" is fully typed
+        typedElement.classList.add('glow-effect');
+    }
+}
+
+    // Start the effect
+    typeEffect();
+
+});
