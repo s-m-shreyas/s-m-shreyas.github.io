@@ -17,6 +17,8 @@
 
     <title>S.M. Shreyas | Data Engineer</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome 6 (Free) for official icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 
@@ -60,7 +62,7 @@
                 </h1>
 
                 <h2>
-                    Python <span>•</span> SQL <span>•</span> ETL
+                    Python <span>•</span> SQL <span>•</span> PySpark <span>•</span> ETL
                 </h2>
 
                 <p class="hero-description">
@@ -108,97 +110,85 @@
             <h2>About Me</h2>
 
             <p>
-                I am a Data Engineer with a background in Electrical &amp; Electronics
-                Engineering, focused on building reliable data pipelines and
-                transforming raw data into structured, usable information.
+                I am a Data Engineer with an Electrical & Electronics Engineering background, 
+                combining strong analytical fundamentals with hands-on experience in Python, 
+                SQL, and ETL pipelines.  
             </p>
 
             <p>
-                My work primarily involves Python, SQL, ETL, data processing, and
-                database technologies. I enjoy breaking down complex data problems
-                into clear, maintainable solutions.
+                I enjoy breaking down messy, unstructured data into clean, 
+                query-ready formats that drive real insights. 
+            </p>
+
+            <p>
+                My engineering training instilled a 
+                deep appreciation for logical design and attention to detail—skills, applied daily 
+                to write maintainable code and build reliable data workflows.
+            </p>
+
+            <p>
+                Eager to contribute 
+                to a collaborative team while continuously deepening my expertise in modern data 
+                technologies.
             </p>
 
         </section>
 
 
         <!-- Skills Section -->
-
         <section id="skills">
-
             <h2>Technical Skills</h2>
-
-
-            <div class="skills-group">
-
-                <h3>Programming</h3>
-
-                <ul>
-
-                    <li>Python</li>
-                    <li>SQL</li>
-
-                </ul>
-
+            <div class="skills-grid">
+                <div class="skills-group">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3>Databases &amp; Warehousing</h3>
+                    <ul>
+                        <li>Oracle</li>
+                        <li>PostgreSQL</li>
+                        <li>MySQL</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3>Data Processing &amp; Orchestration</h3>
+                    <ul>
+                        <li>ETL/ELT</li>
+                        <li>Apache Spark (PySpark)</li>
+                        <li>Apache Airflow</li>
+                        <li>Apache Kafka</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3>Data Modelling</h3>
+                    <ul>
+                        <li>Dimensional Modelling (Star/Snowflake)</li>
+                        <li>Slowly Changing Dimensions (SCD 1/2)</li>
+                        <li>Normalization/Denormalization</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3>Libraries &amp; Tools</h3>
+                    <ul>
+                        <li>Pandas</li>
+                        <li>SQLAlchemy</li>
+                        <li>OpenPyXL</li>
+                        <li>Camelot</li>
+                        <li>Regular Expressions</li>
+                        <li>Boto3</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3>Cloud &amp; Storage</h3>
+                    <ul>
+                        <li>AWS S3</li>
+                    </ul>
+                </div>
             </div>
-
-
-            <div class="skills-group">
-
-                <h3>Data Processing</h3>
-
-                <ul>
-
-                    <li>Pandas</li>
-                    <li>PySpark</li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="skills-group">
-
-                <h3>Data Engineering</h3>
-
-                <ul>
-
-                    <li>ETL</li>
-                    <li>Apache Airflow</li>
-                    <li>Apache Kafka</li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="skills-group">
-
-                <h3>Cloud &amp; Storage</h3>
-
-                <ul>
-
-                    <li>AWS S3</li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="skills-group">
-
-                <h3>Databases</h3>
-
-                <ul>
-
-                    <li>Oracle</li>
-                    <li>PostgreSQL</li>
-                    <li>MySQL</li>
-
-                </ul>
-
-            </div>
-
         </section>
 
 
@@ -398,55 +388,40 @@
 
 
         <!-- Contact Section -->
-
         <section id="contact">
-
-            <h2>Contact</h2>
-
-            <p>
-                Let's connect.
+            <h2>Let's Connect</h2>
+            <p class="contact-subtitle">
+                I'm always open to discussing data engineering, interesting projects, or new opportunities.
             </p>
 
-            <a href="mailto:s.m.shreyas@outlook.com">
-                Email
-            </a>
-
-            <a
-                href="https://www.linkedin.com/in/s-m-shreyas"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                LinkedIn
-            </a>
-
-            <a
-                href="https://github.com/s-m-shreyas"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
-            
-            <div class="back-to-top-container">
-
-                <a href="#home" class="back-to-top">
-                    Back to top ↑
+            <div class="contact-footer-row">
+            <div class="contact-links">
+                <a href="mailto:s.m.shreyas@outlook.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email
                 </a>
-
+                <a href="tel:+917828332249" class="contact-btn" onclick="copyPhoneNumber(event, '+917828332249')">
+                    <i class="fas fa-phone-alt"></i> Phone
+                </a>
+                <a href="https://www.linkedin.com/in/s-m-shreyas" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://github.com/s-m-shreyas" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
-
-        </section>
+                <a href="#home" class="back-to-top">
+                    Back to top <span class="bounce-arrow">↑</span>
+                </a>
+            </div
+            </section>
 
     </main>
 
 
     <footer>
-
         <p>
-            &copy; 2026 S.M. Shreyas
-            
+            &copy; 2026 S.M. Shreyas &middot; Based in Bengaluru, India
         </p>
-
     </footer>
 
     <script src="js/script.js"></script>

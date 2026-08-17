@@ -539,6 +539,12 @@ section h2 {
 
 }
 
+/* Back-to-top bouncing arrow */
+.bounce-arrow {
+    display: inline-block;
+    animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+
 
 /* ==========================================================================
    8. About / Experience
@@ -903,24 +909,37 @@ section h2 {
     text-decoration: underline;
 }
 
-.back-to-top-container {
+/* Contact Footer Row - Puts buttons and "Back to top" on the same line */
+.contact-footer-row {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-top: 32px;
 }
 
-#contact .back-to-top {
-    margin-right: 0;
+/* Contact Links (stays on the left) */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 0; /* Remove any bottom margin */
+}
 
-    color: var(--color-text-secondary);
-
-    font-size: 14px;
-
+/* Back to Top (sits on the far right) */
+.back-to-top {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
     font-weight: 400;
-
     text-decoration: none;
-
+    white-space: nowrap; /* Prevents it from wrapping to a new line */
     transition: color 0.2s ease;
+}
+
+.back-to-top:hover {
+    color: var(--color-accent);
+    text-decoration: none;
 }
 
 #contact .back-to-top:hover {
@@ -928,7 +947,10 @@ section h2 {
 
     text-decoration: none;
 }
-
+.contact-btn i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
 
 /* ==========================================================================
    13. Footer
@@ -1055,4 +1077,43 @@ footer p {
         font-size: 1.75rem;
     }
 
+}
+
+/* ==========================================================================
+   15. Toast Notification
+   ========================================================================== */
+
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    padding: 14px 28px;
+    background-color: #1f2937;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow-medium);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile adjustment */
+@media (max-width: 480px) {
+    .toast-notification {
+        white-space: normal;
+        max-width: 90%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
 }
