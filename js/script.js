@@ -9,36 +9,7 @@
  */
 
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
-    link.addEventListener("click", (event) => {
-
-        const targetId = link.getAttribute("href");
-
-        if (!targetId || targetId === "#") {
-            return;
-        }
-
-        const targetElement = document.querySelector(targetId);
-
-        if (!targetElement) {
-            return;
-        }
-
-        event.preventDefault();
-
-        const targetPosition =
-            targetElement.getBoundingClientRect().top +
-            window.scrollY;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth"
-        });
-
-    });
-
-});
 
 // ================================================================
 // Copy Phone Number with Toast Notification
@@ -103,7 +74,7 @@ function showToast(message) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const text = "S.M. Shreyas";
+    const text = "> S.M.Shreyas";
     const typedElement = document.getElementById('typed-name');
     let index = 0;
     const typingSpeed = 100; // How fast each letter appears (milliseconds)
@@ -123,4 +94,94 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the effect
     typeEffect();
 
+});
+
+// ================================================================
+// Skills Horizontal Scroll - SMOOTH "Swipe" Arrows
+// ================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const track = document.querySelector('.skills-scroll-track');
+    const leftBtn = document.querySelector('.scroll-left');
+    const rightBtn = document.querySelector('.scroll-right');
+
+    if (!track || !leftBtn || !rightBtn) return;
+
+    // Helper: Get the width of one card + the gap between cards
+    function getCardScrollStep() {
+        const cards = track.querySelectorAll('.skill-card-floating');
+        if (cards.length < 2) return 0;
+
+        const firstCard = cards[0];
+        const secondCard = cards[1];
+
+        // Width of the first card
+        const cardWidth = firstCard.offsetWidth;
+
+        // Gap = distance from the right edge of card 1 to the left edge of card 2
+        const gap = secondCard.offsetLeft - (firstCard.offsetLeft + firstCard.offsetWidth);
+
+        return cardWidth + gap;
+    }
+
+    // Right arrow: swipe forward by exactly one card
+    rightBtn.addEventListener('click', () => {
+        const step = getCardScrollStep();
+        if (step === 0) return;
+
+        const currentScroll = track.scrollLeft;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+
+        // Move forward by one card, but never exceed the end
+        const targetScroll = Math.min(currentScroll + step, maxScroll);
+
+        track.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'  // 👈 This gives the fluid swipe feel
+        });
+    });
+
+    // Left arrow: swipe backward by exactly one card
+    leftBtn.addEventListener('click', () => {
+        const step = getCardScrollStep();
+        if (step === 0) return;
+
+        const currentScroll = track.scrollLeft;
+
+        // Move backward by one card, but never go below 0
+        const targetScroll = Math.max(currentScroll - step, 0);
+
+        track.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'
+        });
+    });
+
+    // ----- Optional: Auto-hide arrows when content fits -----
+    function checkOverflow() {
+        const isOverflowing = track.scrollWidth > track.clientWidth;
+        leftBtn.style.display = isOverflowing ? 'flex' : 'none';
+        rightBtn.style.display = isOverflowing ? 'flex' : 'none';
+    }
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+
+    // ----- Optional: Fade arrows at edges (visual polish) -----
+    function updateArrowFade() {
+        const scrollLeft = track.scrollLeft;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+
+        // Left arrow fades when at start
+        leftBtn.style.opacity = scrollLeft <= 5 ? '0.3' : '1';
+        leftBtn.style.pointerEvents = scrollLeft <= 5 ? 'none' : 'auto';
+
+        // Right arrow fades when at end
+        rightBtn.style.opacity = maxScroll - scrollLeft <= 5 ? '0.3' : '1';
+        rightBtn.style.pointerEvents = maxScroll - scrollLeft <= 5 ? 'none' : 'auto';
+    }
+
+    track.addEventListener('scroll', updateArrowFade);
+    setTimeout(updateArrowFade, 150);
 });

@@ -63,7 +63,7 @@
                 </h1>
 
                 <h2>
-                    Python <span>•</span> SQL <span>•</span> PySpark <span>•</span> ETL
+                    Python <span>•</span> SQL <span>•</span> PySpark <span>•</span> ETL / ELT
                 </h2>
 
                 <p class="hero-description">
@@ -139,56 +139,90 @@
         <!-- Skills Section -->
         <section id="skills">
             <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skills-group">
-                    <h3>Programming</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>SQL</li>
-                    </ul>
+            <p class="skills-subtitle">Scroll or swipe through my core competencies →</p>
+
+            <div class="skills-scroll-wrapper">
+                <!-- Left Arrow -->
+                <button class="scroll-arrow-btn scroll-left" aria-label="Scroll left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <!-- Scrollable Track -->
+                <div class="skills-scroll-track">
+                    
+                    <!-- Card 1: Programming -->
+                    <div class="skill-card-floating">
+                        <div class="skill-card-icon"><i class="fas fa-code"></i></div>
+                        <h3>Programming</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Databases & Warehousing -->
+                    <div class="skill-card-floating">
+                        <div class="skill-card-icon"><i class="fas fa-database"></i></div>
+                        <h3>Databases &amp; Warehousing</h3>
+                        <ul>
+                            <li>Oracle</li>
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Data Processing & Orchestration -->
+                    <div class="skill-card-floating">
+                        <div class="skill-card-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Data Processing &amp; Orchestration</h3>
+                        <ul>
+                            <li>ETL/ELT</li>
+                            <li>Apache Spark (PySpark)</li>
+                            <li>Apache Airflow</li>
+                            <li>Apache Kafka</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4: Data Modelling -->
+                    <div class="skill-card-floating">
+                        <div class="skill-card-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h3>Data Modelling</h3>
+                        <ul>
+                            <li>Dimensional Modelling</li>
+                            <li>Slowly Changing Dimensions</li>
+                            <li>Normalization/Denormalization</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 5: Libraries & Tools -->
+                    <div class="skill-card-floating">
+                        <div class="skill-card-icon"><i class="fas fa-toolbox"></i></div>
+                        <h3>Libraries &amp; Tools</h3>
+                        <ul>
+                            <li>Pandas</li>
+                            <li>SQLAlchemy</li>
+                            <li>OpenPyXL</li>
+                            <li>Camelot</li>
+                            <li>Regex</li>
+                            <li>Boto3</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 6: Cloud & Storage -->
+                    <div class="skill-card-floating">
+                        <div class="skill-card-icon"><i class="fas fa-cloud"></i></div>
+                        <h3>Cloud &amp; Storage</h3>
+                        <ul>
+                            <li>AWS S3</li>
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="skills-group">
-                    <h3>Databases &amp; Warehousing</h3>
-                    <ul>
-                        <li>Oracle</li>
-                        <li>PostgreSQL</li>
-                        <li>MySQL</li>
-                    </ul>
-                </div>
-                <div class="skills-group">
-                    <h3>Data Processing &amp; Orchestration</h3>
-                    <ul>
-                        <li>ETL/ELT</li>
-                        <li>Apache Spark (PySpark)</li>
-                        <li>Apache Airflow</li>
-                        <li>Apache Kafka</li>
-                    </ul>
-                </div>
-                <div class="skills-group">
-                    <h3>Data Modelling</h3>
-                    <ul>
-                        <li>Dimensional Modelling (Star/Snowflake)</li>
-                        <li>Slowly Changing Dimensions (SCD 1/2)</li>
-                        <li>Normalization/Denormalization</li>
-                    </ul>
-                </div>
-                <div class="skills-group">
-                    <h3>Libraries &amp; Tools</h3>
-                    <ul>
-                        <li>Pandas</li>
-                        <li>SQLAlchemy</li>
-                        <li>OpenPyXL</li>
-                        <li>Camelot</li>
-                        <li>Regular Expressions</li>
-                        <li>Boto3</li>
-                    </ul>
-                </div>
-                <div class="skills-group">
-                    <h3>Cloud &amp; Storage</h3>
-                    <ul>
-                        <li>AWS S3</li>
-                    </ul>
-                </div>
+
+                <!-- Right Arrow -->
+                <button class="scroll-arrow-btn scroll-right" aria-label="Scroll right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
 

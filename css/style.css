@@ -23,7 +23,7 @@
 
     /* Colors */
 
-    --color-background: #f7f8fa;
+    --color-background: #dfead4;
     --color-surface: #ffffff;
     --color-surface-alt: #eef1f5;
 
@@ -711,9 +711,7 @@ section h2 {
    9. Skills
    ========================================================================== */
 
-#skills {
-    background-color: var(--color-surface);
-}
+
 
 
 #skills .skills-group {
@@ -761,6 +759,144 @@ section h2 {
 
     font-size: 0.95rem;
     font-weight: 500;
+}
+
+/* ==========================================================================
+   9. Skills - Horizontal Scroll (Floating Cards)
+   ========================================================================== */
+
+#skills {
+    background-color: var(--color-surface);
+}
+
+.skills-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-top: -12px;
+    margin-bottom: 28px;
+}
+
+/* Wrapper to contain arrows and track */
+.skills-scroll-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* The actual scrollable track */
+.skills-scroll-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 12px 4px 24px 4px; /* extra bottom padding for shadow visibility */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    /* Hide scrollbar in Firefox/IE/Edge */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-border);
+}
+
+/* WebKit scrollbar styling (Chrome, Safari) */
+.skills-scroll-track::-webkit-scrollbar {
+    height: 6px;
+}
+.skills-scroll-track::-webkit-scrollbar-track {
+    background: var(--color-border);
+    border-radius: 10px;
+}
+.skills-scroll-track::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 10px;
+}
+
+/* Each floating card */
+.skill-card-floating {
+    flex: 0 0 200px;           /* Fixed width, prevents shrinking */
+    scroll-snap-align: start;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-medium);
+    padding: 24px 18px 20px 18px;
+    box-shadow: var(--shadow-small);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card-floating:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-medium);
+}
+
+.skill-card-icon {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+}
+
+.skill-card-floating h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 6px;
+}
+
+.skill-card-floating ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.skill-card-floating li {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+.skill-card-floating li:last-child {
+    border-bottom: none;
+}
+
+/* Scroll Arrow Buttons */
+.scroll-arrow-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-small);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    z-index: 2;
+}
+
+.scroll-arrow-btn:hover {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.scroll-arrow-btn:active {
+    transform: scale(0.95);
 }
 
 
@@ -1173,3 +1309,15 @@ footer p {
         font-size: 0.9rem;
     }
 }
+/* ==========================================================================
+   FORCED PISTACHIO BACKGROUND (Skip Navy Sections)
+   ========================================================================== */
+
+#about,
+#skills,
+#experience,
+#projects,
+#contact {
+    background-color: #d3d3d6 !important;
+}
+
