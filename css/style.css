@@ -126,8 +126,9 @@ nav a {
     transition: color 0.2s ease;
 }
 
+/* UPDATED: Hover color changed to theme color */
 nav a:hover {
-    color: var(--color-accent);
+    color: #90d8f5 !important; 
 }
 
 
@@ -267,14 +268,17 @@ section h2 {
     transform: translateY(-2px);
 }
 
+/* UPDATED: Primary button is now your theme light blue */
 .button-primary {
-    background-color: var(--color-accent);
-    color: #ffffff;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    background-color: #90d8f5;
+    color: #111827;
+    box-shadow: 0 8px 20px rgba(144, 216, 245, 0.25);
 }
 .button-primary:hover {
-    background-color: var(--color-accent-hover);
-    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+    background-color: #ffffff;
+    color: #111827;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(144, 216, 245, 0.35);
 }
 
 .button-secondary {
@@ -426,7 +430,7 @@ section h2 {
     -webkit-overflow-scrolling: touch;
     flex: 1;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-accent) var(--color-border);
+    scrollbar-color: #111827 var(--color-border); /* UPDATED: Thumb is Hero color, track is border color */
 
     background-image: url('/assets/images/server-room.jpg') !important;
     background-size: cover !important;
@@ -443,7 +447,7 @@ section h2 {
     border-radius: 10px;
 }
 .skills-scroll-track::-webkit-scrollbar-thumb {
-    background: var(--color-accent);
+    background: #111827 !important; /* UPDATED: The scroll handle is now the Hero dark navy */
     border-radius: 10px;
 }
 
@@ -533,9 +537,9 @@ section h2 {
     z-index: 2;
 }
 .scroll-arrow-btn:hover {
-    background: var(--color-accent);
+    background: #111827 !important; /* UPDATED: Now matches Hero color on hover */
     color: #fff;
-    border-color: var(--color-accent);
+    border-color: #111827 !important;
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
