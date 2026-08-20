@@ -2,16 +2,6 @@
  * style.css
  *
  * Main stylesheet for the S.M. Shreyas portfolio website.
- *
- * Responsibilities:
- *
- *     - Global design system
- *     - Typography
- *     - Colors
- *     - Layout
- *     - Navigation
- *     - Section styling
- *     - Responsive behavior
  */
 
 
@@ -22,7 +12,6 @@
 :root {
 
     /* Colors */
-
     --color-background: #dfead4;
     --color-surface: #ffffff;
     --color-surface-alt: #eef1f5;
@@ -41,9 +30,7 @@
 
     --color-border: #e2e8f0;
 
-
     /* Typography */
-
     --font-primary:
         Inter,
         system-ui,
@@ -52,24 +39,18 @@
         "Segoe UI",
         sans-serif;
 
-
     /* Layout */
-
     --content-width: 1120px;
     --section-padding: 96px;
 
-
     /* Visual */
-
     --border-radius-small: 8px;
     --border-radius-medium: 14px;
 
     --shadow-small:
         0 4px 12px rgba(15, 23, 42, 0.06);
-
     --shadow-medium:
         0 12px 30px rgba(15, 23, 42, 0.10);
-
 }
 
 
@@ -81,19 +62,15 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
 }
 
-
 body {
     margin: 0;
-
     background-color: var(--color-background);
     color: var(--color-text);
-
     font-family: var(--font-primary);
     line-height: 1.6;
 }
@@ -103,26 +80,15 @@ body {
    3. Base Elements
    ========================================================================== */
 
-h1,
-h2,
-h3,
-p {
+h1, h2, h3, p {
     margin-top: 0;
 }
-
-
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     line-height: 1.2;
 }
-
-
 a {
     color: inherit;
 }
-
-
 img {
     display: block;
     max-width: 100%;
@@ -137,40 +103,28 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     background-color: rgba(255, 255, 255, 0.95);
-
     border-bottom: 1px solid var(--color-border);
 }
 
-
 nav {
     display: flex;
-
     align-items: center;
     justify-content: flex-end;
-
     gap: 28px;
-
     max-width: var(--content-width);
-
     margin: 0 auto;
     padding: 20px 24px;
 }
 
-
+/* UPDATED: Nav items set to hero color */
 nav a {
-    color: var(--color-text-muted);
-
+    color: #111827;
     font-size: 0.95rem;
     font-weight: 500;
-
     text-decoration: none;
-
-    transition:
-        color 0.2s ease;
+    transition: color 0.2s ease;
 }
-
 
 nav a:hover {
     color: var(--color-accent);
@@ -183,19 +137,15 @@ nav a:hover {
 
 section {
     max-width: var(--content-width);
-
     margin: 0 auto;
-
-    padding:
-        var(--section-padding)
-        24px;
+    padding: var(--section-padding) 24px;
 }
 
-
+/* UPDATED: All section headings set to hero color */
 section h2 {
     margin-bottom: 24px;
-
     font-size: 2rem;
+    color: #111827;
 }
 
 
@@ -205,112 +155,48 @@ section h2 {
 
 #home {
     position: relative;
-
     max-width: none;
     min-height: calc(100vh - 73px);
-
     display: flex;
     align-items: center;
-
-    padding:
-        100px
-        max(24px, calc((100vw - var(--content-width)) / 2));
-
+    padding: 100px max(24px, calc((100vw - var(--content-width)) / 2));
     overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(37, 99, 235, 0.18),
-            transparent 35%
-        ),
-        var(--color-hero);
-
+    background: radial-gradient(circle at 80% 30%, rgba(37, 99, 235, 0.18), transparent 35%), var(--color-hero);
     color: var(--color-text-light);
 }
 
-
-/*
- * Subtle technical grid.
- *
- * This gives the hero a slightly data/engineering-oriented
- * visual identity without becoming visually distracting.
- */
-
 #home::before {
     content: "";
-
     position: absolute;
     inset: 0;
-
-    background-image:
-        linear-gradient(
-            rgba(255, 255, 255, 0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.025) 1px,
-            transparent 1px
-        );
-
+    background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
     background-size: 48px 48px;
-
     pointer-events: none;
 }
-
-
-/*
- * Main hero content.
- */
 
 .hero-content {
     position: relative;
     z-index: 1;
-
     max-width: 760px;
 }
 
-
-/*
- * Small professional identifier above the name.
- */
-
 .hero-eyebrow {
     display: inline-flex;
-
     align-items: center;
-
     margin-bottom: 20px;
-
     color: #93c5fd;
-
     font-size: 0.82rem;
     font-weight: 700;
-
     letter-spacing: 0.18em;
 }
 
-
-/*
- * Small line before the eyebrow text.
- */
-
 .hero-eyebrow::before {
     content: "";
-
     width: 32px;
     height: 2px;
-
     margin-right: 12px;
-
     background-color: #60a5fa;
 }
-
-
-/*
- * Main name.
- */
 
 #home h1 {
     font-family: 'Ubuntu Mono', monospace;
@@ -320,11 +206,8 @@ section h2 {
     letter-spacing: -0.02em;
     line-height: 0.95;
     color: #00ff5e;
+    animation: glow-pulse 3s ease-in-out infinite;
 }
-
-/* ==========================================================================
-   Typing Effect - Blinking Cursor
-   ========================================================================== */
 
 .cursor-blink {
     display: inline-block;
@@ -335,434 +218,184 @@ section h2 {
 }
 
 @keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
-/*
- * Professional headline.
- */
 
 #home h2 {
     margin-bottom: 28px;
-
     color: #cbd5e1;
-
     font-size: clamp(1.35rem, 3vw, 2rem);
-
     font-weight: 500;
-
     letter-spacing: -0.02em;
 }
 
-
 #home h2 span {
     margin: 0 8px;
-
     color: #60a5fa;
 }
 
-
-/*
- * Main description.
- */
-
 .hero-description {
     max-width: 650px;
-
     margin-bottom: 36px;
-
     color: var(--color-text-light-muted);
-
     font-size: clamp(1rem, 2vw, 1.15rem);
-
     line-height: 1.8;
 }
 
-
-/* ==========================================================================
-   Hero Actions
-   ========================================================================== */
-
 .hero-actions {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 12px;
-
     margin-bottom: 28px;
 }
 
-
 .button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     min-width: 150px;
-
     padding: 13px 22px;
-
     border-radius: var(--border-radius-small);
-
     font-size: 0.95rem;
     font-weight: 600;
-
     text-decoration: none;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 
 .button:hover {
     transform: translateY(-2px);
 }
 
-
-/*
- * Primary call-to-action.
- */
-
 .button-primary {
     background-color: var(--color-accent);
-
     color: #ffffff;
-
-    box-shadow:
-        0 8px 20px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
-
-
 .button-primary:hover {
     background-color: var(--color-accent-hover);
-
-    box-shadow:
-        0 12px 25px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
 }
-
-
-/*
- * Secondary call-to-action.
- */
 
 .button-secondary {
     border: 1px solid #475569;
-
     background-color: rgba(255, 255, 255, 0.03);
-
     color: #f8fafc;
 }
-
-
 .button-secondary:hover {
     border-color: #64748b;
-
     background-color: rgba(255, 255, 255, 0.08);
 }
 
-
-/* ==========================================================================
-   Hero External Links
-   ========================================================================== */
-
 .hero-links {
     display: flex;
-
     align-items: center;
-
     flex-wrap: wrap;
-
     gap: 10px;
-
     color: #94a3b8;
-
     font-size: 0.9rem;
 }
-
-
 .hero-links a {
     color: #cbd5e1;
-
     text-decoration: none;
-
-    transition:
-        color 0.2s ease;
+    transition: color 0.2s ease;
 }
-
-
 .hero-links a:hover {
     color: #93c5fd;
 }
-
-
 .hero-links span {
     color: #475569;
 }
 
-
-/* ==========================================================================
-   Hero Scroll Indicator
-   ========================================================================== */
-
 .hero-scroll-indicator {
     position: absolute;
-
     right: 40px;
     bottom: 40px;
-
     display: flex;
-
     flex-direction: column;
     align-items: center;
-
     gap: 6px;
-
     color: white;
-
     font-size: 0.9rem;
-
     z-index: 9999;
 }
 
-
 .scroll-arrow {
     color: #93c5fd;
-
     font-size: 1.2rem;
-
     animation: scroll-bounce 1.8s ease-in-out infinite;
 }
 
-
 @keyframes scroll-bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(5px);
-    }
-
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
 }
 
-/* Back-to-top bouncing arrow */
 .bounce-arrow {
     display: inline-block;
     animation: scroll-bounce 1.8s ease-in-out infinite;
 }
 
-/* ==========================================================================
-   Terminal Glow Effect (Pulsing)
-   ========================================================================== */
-
 @keyframes terminal-glow {
-    0%, 100% {
-        /* Fully bright and glowing */
-        text-shadow: 0 0 8px #22c55e, 
-                     0 0 15px #22c55e, 
-                     0 0 30px rgba(34, 197, 94, 0.6);
-        opacity: 1;
-    }
-    50% {
-        /* Dimmer, soft glow */
-        text-shadow: 0 0 2px #22c55e, 
-                     0 0 8px #22c55e, 
-                     0 0 15px rgba(34, 197, 94, 0.2);
-        opacity: 0.85;
-    }
+    0%, 100% { text-shadow: 0 0 8px #22c55e, 0 0 15px #22c55e, 0 0 30px rgba(34, 197, 94, 0.6); opacity: 1; }
+    50% { text-shadow: 0 0 2px #22c55e, 0 0 8px #22c55e, 0 0 15px rgba(34, 197, 94, 0.2); opacity: 0.85; }
 }
-
 .glow-effect {
     animation: terminal-glow 2.5s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3));
-    }
-    50% {
-        filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.6));
-    }
-}
-
-#home h1 {
-    /* ... keep the gradient code from Option 3 ... */
-    animation: glow-pulse 3s ease-in-out infinite;
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3)); }
+    50% { filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.6)); }
 }
 
 
 /* ==========================================================================
-   8. About / Experience
+   7. About / Experience
    ========================================================================== */
 
-#about,
-#experience,
-#contact {
+#about, #experience, #contact {
     background-color: var(--color-background);
 }
 
-
 #about p {
     max-width: 760px;
-
     margin-bottom: 20px;
-
     color: var(--color-text-muted);
-
     font-size: 1.05rem;
 }
 
-#experience article {
-    margin-bottom: 28px;
-
-    padding: 28px;
-
-    border: 1px solid var(--color-border);
-
-    border-radius: var(--border-radius-medium);
-
-    background-color: var(--color-surface);
-
-    box-shadow: var(--shadow-small);
-}
-
-
-#experience article:last-child {
-    margin-bottom: 0;
-}
-
-
-#experience article h3 {
-    margin-bottom: 8px;
-
-    font-size: 1.35rem;
-}
-
-
-#experience .experience-company {
-    margin-bottom: 4px;
-
-    color: var(--color-text);
-
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-
 #experience .experience-meta {
     margin-bottom: 16px;
-
     color: var(--color-text-muted);
-
     font-size: 0.9rem;
 }
-
-
 #experience .experience-meta span {
     margin: 0 6px;
-
     color: var(--color-accent);
 }
-
-
 #experience .experience-skills {
     margin-bottom: 20px;
-
     color: var(--color-accent);
-
     font-size: 0.9rem;
     font-weight: 600;
 }
-
-
 #experience article ul {
     margin: 0;
-
     padding-left: 20px;
 }
-
-
 #experience article li {
     margin-bottom: 10px;
-
     color: var(--color-text-muted);
-
     line-height: 1.7;
 }
-
-
 #experience article li:last-child {
     margin-bottom: 0;
 }
 
 
 /* ==========================================================================
-   9. Skills
-   ========================================================================== */
-
-
-
-
-#skills .skills-group {
-    margin-bottom: 28px;
-}
-
-
-#skills .skills-group:last-child {
-    margin-bottom: 0;
-}
-
-
-#skills .skills-group h3 {
-    margin-bottom: 12px;
-
-    font-size: 1rem;
-    font-weight: 600;
-
-    color: var(--color-text);
-}
-
-
-#skills ul {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-
-#skills li {
-    padding: 9px 14px;
-
-    border: 1px solid var(--color-border);
-
-    border-radius: var(--border-radius-small);
-
-    background-color: var(--color-surface-alt);
-
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* ==========================================================================
-   9. Skills - Horizontal Scroll (Floating Cards)
+   8. Skills - Horizontal Scroll (Floating Cards) with Server Room BG
    ========================================================================== */
 
 #skills {
@@ -776,7 +409,6 @@ section h2 {
     margin-bottom: 28px;
 }
 
-/* Wrapper to contain arrows and track */
 .skills-scroll-wrapper {
     position: relative;
     display: flex;
@@ -784,22 +416,25 @@ section h2 {
     gap: 12px;
 }
 
-/* The actual scrollable track */
 .skills-scroll-track {
     display: flex;
     gap: 24px;
     overflow-x: auto;
     overflow-y: visible;
-    padding: 12px 4px 24px 4px; /* extra bottom padding for shadow visibility */
+    padding: 12px 4px 24px 4px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     flex: 1;
-    /* Hide scrollbar in Firefox/IE/Edge */
     scrollbar-width: thin;
     scrollbar-color: var(--color-accent) var(--color-border);
+
+    background-image: url('/assets/images/server-room.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
 }
 
-/* WebKit scrollbar styling (Chrome, Safari) */
 .skills-scroll-track::-webkit-scrollbar {
     height: 6px;
 }
@@ -812,11 +447,13 @@ section h2 {
     border-radius: 10px;
 }
 
-/* Each floating card */
 .skill-card-floating {
-    flex: 0 0 200px;           /* Fixed width, prevents shrinking */
+    position: relative;
+    z-index: 0;
+    flex: 0 0 200px;
     scroll-snap-align: start;
-    background: var(--color-surface);
+    background-color: transparent !important;
+    background-image: none !important;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-medium);
     padding: 24px 18px 20px 18px;
@@ -824,6 +461,16 @@ section h2 {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: flex;
     flex-direction: column;
+    color: #ffffff !important;
+}
+
+.skill-card-floating::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65) !important;
+    z-index: -1;
+    border-radius: inherit;
 }
 
 .skill-card-floating:hover {
@@ -833,7 +480,7 @@ section h2 {
 
 .skill-card-icon {
     font-size: 1.8rem;
-    color: var(--color-accent);
+    color: #90d8f5 !important;
     margin-bottom: 8px;
 }
 
@@ -841,8 +488,8 @@ section h2 {
     font-size: 0.95rem;
     font-weight: 600;
     margin-bottom: 12px;
-    color: var(--color-text);
-    border-bottom: 2px solid var(--color-border);
+    color: #ffffff !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 6px;
 }
 
@@ -858,17 +505,16 @@ section h2 {
 
 .skill-card-floating li {
     font-size: 0.9rem;
-    color: var(--color-text-muted);
+    color: #fdfdfd !important;
     font-weight: 500;
     padding: 4px 0;
-    border-bottom: 1px dashed var(--color-border);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
 }
 
 .skill-card-floating li:last-child {
     border-bottom: none;
 }
 
-/* Scroll Arrow Buttons */
 .scroll-arrow-btn {
     flex-shrink: 0;
     width: 44px;
@@ -886,7 +532,6 @@ section h2 {
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     z-index: 2;
 }
-
 .scroll-arrow-btn:hover {
     background: var(--color-accent);
     color: #fff;
@@ -894,97 +539,167 @@ section h2 {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
-
 .scroll-arrow-btn:active {
     transform: scale(0.95);
 }
 
 
 /* ==========================================================================
-   10. Experience
+   9. Experience Cards & Terminal Bullets
    ========================================================================== */
 
 #experience article {
-    margin-bottom: 28px;
-
+    position: relative;
+    z-index: 0;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-color: transparent;
     padding: 28px;
-
+    margin-bottom: 36px;
     border: 1px solid var(--color-border);
-
     border-radius: var(--border-radius-medium);
-
-    background-color: var(--color-surface);
-
     box-shadow: var(--shadow-small);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff; 
 }
 
-
-#experience article:last-child {
-    margin-bottom: 0;
+#experience article.pointcross-card {
+    background-image: url('/assets/images/pointcross-bg.jpeg') !important; 
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    color: #90d8f5 !important;
 }
 
-
-#experience article h3 {
-    margin-bottom: 8px;
-
-    font-size: 1.35rem;
+#experience article.aroha-card {
+    background-image: url('/assets/images/aroha-bg.jpeg') !important; 
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    color: #90d8f5 !important;
 }
 
-
-#experience .experience-company {
-    margin-bottom: 4px;
-
-    color: var(--color-text);
-
-    font-size: 1rem;
-    font-weight: 600;
+#experience article.pointcross-card::before,
+#experience article.pointcross-card::after,
+#experience article.aroha-card::before,
+#experience article.aroha-card::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    opacity: 0 !important;
 }
 
-
-#experience .experience-meta {
-    margin-bottom: 16px;
-
-    color: var(--color-text-muted);
-
-    font-size: 0.9rem;
+#experience article.pointcross-card:hover,
+#experience article.aroha-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
 }
 
-
-#experience .experience-meta span {
-    margin: 0 6px;
-
-    color: var(--color-accent);
+#experience article.pointcross-card .experience-meta,
+#experience article.pointcross-card li,
+#experience article.aroha-card .experience-meta,
+#experience article.aroha-card li {
+    color: #fdfdfd !important;
+}
+#experience article.pointcross-card .experience-skills,
+#experience article.aroha-card .experience-skills {
+    color: #90d8f5 !important;
+}
+#experience article.pointcross-card .experience-company .company-name,
+#experience article.aroha-card .experience-company .company-name {
+    color: #ffffff !important;
+}
+#experience article.pointcross-card .linkedin-link i,
+#experience article.aroha-card .linkedin-link i {
+    color: #90d8f5 !important;
+}
+#experience article.pointcross-card .experience-meta span,
+#experience article.aroha-card .experience-meta span {
+    color: #90d8f5 !important;
 }
 
-
-#experience .experience-skills {
-    margin-bottom: 20px;
-
-    color: var(--color-accent);
-
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-
+/* Terminal Bullet Points */
 #experience article ul {
-    margin: 0;
-
-    padding-left: 20px;
+    list-style: none;
+    padding-left: 0;
 }
-
-
 #experience article li {
-    margin-bottom: 10px;
-
-    color: var(--color-text-muted);
-
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 12px;
+    min-height: 1.7em;
     line-height: 1.7;
+    color: var(--color-text-muted);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#experience article li::before {
+    content: ">";
+    color: #90d8f5 !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+#experience article li.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.terminal-cursor-blink {
+    display: inline-block;
+    font-weight: 400;
+    color: #90d8f5 !important;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 2px;
+    font-family: 'Ubuntu Mono', monospace;
 }
 
 
-#experience article li:last-child {
-    margin-bottom: 0;
+/* ==========================================================================
+   10. Company Name with LinkedIn Link
+   ========================================================================== */
+
+.experience-company {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+.linkedin-link i {
+    color: #0a66c2 !important;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+.linkedin-link:hover i {
+    transform: scale(1.15);
+    filter: brightness(0.8);
+}
+.linkedin-link:active i {
+    transform: scale(0.95);
+}
+.linkedin-link, .linkedin-link * {
+    text-decoration: none !important;
+}
+.company-name {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 
@@ -995,285 +710,279 @@ section h2 {
 #projects {
     background-color: var(--color-surface);
 }
-
-
 #projects article {
     margin-bottom: 24px;
-
     padding: 28px;
-
     border: 1px solid var(--color-border);
-
     border-radius: var(--border-radius-medium);
-
     background-color: var(--color-surface);
-
     box-shadow: var(--shadow-small);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-
 #projects article:hover {
     transform: translateY(-4px);
-
     box-shadow: var(--shadow-medium);
 }
-
-
 #projects article h3 {
     margin-bottom: 12px;
 }
-
-
 #projects article p {
     margin-bottom: 0;
-
     color: var(--color-text-muted);
 }
-
 #projects .project-technologies {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 8px;
-
     margin: 20px 0;
-
     padding: 0;
-
     list-style: none;
 }
-
-
 #projects .project-technologies li {
     padding: 7px 11px;
-
     border: 1px solid var(--color-border);
-
     border-radius: var(--border-radius-small);
-
     background-color: var(--color-surface-alt);
-
     color: var(--color-text);
-
     font-size: 0.85rem;
     font-weight: 500;
 }
-
 #projects .project-link {
     display: inline-block;
-
     color: var(--color-accent);
-
     font-weight: 600;
-
     text-decoration: none;
 }
-
-
 #projects .project-link:hover {
     color: var(--color-accent-hover);
-
     text-decoration: underline;
+}
+
+/* Dark Project Cards */
+html #projects article.project-python-concepts,
+html #projects article.project-python-utils {
+    position: relative;
+    z-index: 0;
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    padding: 28px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #ffffff !important; 
+}
+html #projects article.project-python-concepts {
+    background-image: url('/assets/images/python.jpg') !important;
+}
+html #projects article.project-python-utils {
+    background-image: url('/assets/images/python-utils-bg.png') !important;
+}
+html #projects article.project-python-concepts::before,
+html #projects article.project-python-concepts::after,
+html #projects article.project-python-utils::before,
+html #projects article.project-python-utils::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    opacity: 0 !important;
+}
+html #projects article.project-python-concepts:hover,
+html #projects article.project-python-utils:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+html #projects article.project-python-concepts h3,
+html #projects article.project-python-utils h3 {
+    color: #90d8f5 !important;
+    margin-bottom: 12px;
+}
+html #projects article.project-python-concepts p,
+html #projects article.project-python-utils p {
+    color: #fdfdfd !important;
+}
+html #projects article.project-python-concepts .project-link,
+html #projects article.project-python-utils .project-link {
+    color: #90d8f5 !important;
+}
+html #projects article.project-python-concepts .project-link:hover,
+html #projects article.project-python-utils .project-link:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+html #projects article.project-python-concepts .project-technologies li,
+html #projects article.project-python-utils .project-technologies li {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 
 /* ==========================================================================
-   12. Contact
+   12. Contact (Centered Form & Quote)
    ========================================================================== */
 
-#contact a {
-    margin-right: 20px;
+#contact {
+    text-align: center;
+}
+#contact .contact-quote {
+    text-align: center;
+    margin: 0 auto 32px auto;
+    max-width: 650px;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: #7a7a7a;
+    border: none;
+    padding: 0;
+    line-height: 1.6;
+}
 
-    color: var(--color-accent);
+.contact-form {
+    position: relative;
+    z-index: 0;
+    max-width: 540px;
+    margin: 0 auto 36px auto;
+    padding: 24px 28px 28px 28px;
+    background-color: transparent !important;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    text-align: left;
+}
+.contact-form::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: url('/assets/images/lets-connect.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: rgba(0, 0, 0, 0.65) !important;
+    background-blend-mode: multiply !important;
+}
 
+.form-group {
+    margin-bottom: 18px;
+}
+.form-group label {
+    display: block;
+    color: #90d8f5;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid #475569;
+    border-radius: var(--border-radius-small);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #90d8f5;
+    box-shadow: 0 0 0 3px rgba(144, 216, 245, 0.15);
+}
+.form-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #90d8f5;
+    color: #111827;
+    font-size: 1rem;
     font-weight: 600;
-
-    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(144, 216, 245, 0.2);
+}
+.form-submit-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(144, 216, 245, 0.3);
+}
+.form-submit-btn:active {
+    transform: scale(0.98);
 }
 
 
-#contact a:hover {
-    text-decoration: underline;
-}
+/* ==========================================================================
+   13. Contact Links (Logos) & Back to Top
+   ========================================================================== */
 
-/* Contact Footer Row - Puts buttons and "Back to top" on the same line */
 .contact-footer-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 32px;
+    gap: 24px;
+    margin-top: 0;
 }
 
-/* Contact Links (stays on the left) */
 .contact-links {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 0; /* Remove any bottom margin */
+    justify-content: center;
+    margin-bottom: 0;
 }
 
-/* Back to Top (sits on the far right) */
+/* UPDATED: Logos now match the dark color of Hero */
+.contact-btn {
+    color: #111827 !important; 
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.contact-btn:hover,
+.contact-btn:hover i {
+    color: #90d8f5 !important; /* Theme color on hover */
+}
+.contact-btn i {
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
 .back-to-top {
     color: var(--color-text-muted);
     font-size: 0.9rem;
     font-weight: 400;
     text-decoration: none;
-    white-space: nowrap; /* Prevents it from wrapping to a new line */
+    white-space: nowrap;
     transition: color 0.2s ease;
 }
-
 .back-to-top:hover {
-    color: var(--color-accent);
+    color: #90d8f5 !important; 
     text-decoration: none;
 }
 
-#contact .back-to-top:hover {
-    color: var(--color-accent);
-
-    text-decoration: none;
-}
-.contact-btn i {
-    margin-right: 8px;
-    font-size: 1.1rem;
-}
 
 /* ==========================================================================
-   13. Footer
+   14. Footer & Toast
    ========================================================================== */
 
 footer {
     padding: 28px 24px;
-
     background-color: var(--color-hero);
-
     color: var(--color-text-light-muted);
-
     text-align: center;
 }
-
-
 footer p {
     margin: 0;
-
     font-size: 0.9rem;
 }
-
-
-/* ==========================================================================
-   14. Responsive Layout
-   ========================================================================== */
-
-@media (max-width: 768px) {
-
-    #home {
-        min-height: calc(100vh - 58px);
-
-        padding:
-            80px
-            20px;
-    }
-
-
-    #home h1 {
-        font-size: clamp(3rem, 16vw, 4.5rem);
-
-        letter-spacing: -0.05em;
-    }
-
-
-    #home h2 {
-        font-size: 1.25rem;
-    }
-
-
-    .hero-description {
-        font-size: 1rem;
-
-        line-height: 1.7;
-    }
-
-
-    .hero-actions {
-        width: 100%;
-    }
-
-
-    .button {
-        flex: 1;
-
-        min-width: 140px;
-    }
-
-
-    .hero-scroll-indicator {
-        display: none;
-    }
-
-    nav {
-        justify-content: center;
-
-        gap: 16px;
-
-        overflow-x: auto;
-
-        padding: 16px;
-    }
-
-
-    nav a {
-        flex-shrink: 0;
-
-        font-size: 0.85rem;
-    }
-
-
-    section {
-        padding:
-            72px
-            20px;
-    }
-
-
-    #home {
-        min-height: calc(100vh - 58px);
-
-        padding:
-            80px
-            20px;
-    }
-
-
-    #home h1 {
-        font-size: clamp(2.75rem, 14vw, 4rem);
-    }
-
-
-    #home h2 {
-        font-size: 1.3rem;
-    }
-
-
-    #home p:not(:first-child) {
-        font-size: 1rem;
-    }
-
-
-    section h2 {
-        font-size: 1.75rem;
-    }
-
-}
-
-/* ==========================================================================
-   15. Toast Notification
-   ========================================================================== */
 
 .toast-notification {
     position: fixed;
@@ -1293,13 +1002,11 @@ footer p {
     pointer-events: none;
     white-space: nowrap;
 }
-
 .toast-notification.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
-/* Mobile adjustment */
 @media (max-width: 480px) {
     .toast-notification {
         white-space: normal;
@@ -1309,15 +1016,121 @@ footer p {
         font-size: 0.9rem;
     }
 }
+
+
 /* ==========================================================================
-   FORCED PISTACHIO BACKGROUND (Skip Navy Sections)
+   15. Responsive
    ========================================================================== */
 
-#about,
-#skills,
-#experience,
-#projects,
-#contact {
+@media (max-width: 768px) {
+    #home {
+        min-height: calc(100vh - 58px);
+        padding: 80px 20px;
+    }
+    #home h1 {
+        font-size: clamp(3rem, 16vw, 4.5rem);
+        letter-spacing: -0.05em;
+    }
+    #home h2 {
+        font-size: 1.25rem;
+    }
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .hero-actions {
+        width: 100%;
+    }
+    .button {
+        flex: 1;
+        min-width: 140px;
+    }
+    .hero-scroll-indicator {
+        display: none;
+    }
+    nav {
+        justify-content: center;
+        gap: 16px;
+        overflow-x: auto;
+        padding: 16px;
+    }
+    nav a {
+        flex-shrink: 0;
+        font-size: 0.85rem;
+    }
+    section {
+        padding: 72px 20px;
+    }
+    #home h1 {
+        font-size: clamp(2.75rem, 14vw, 4rem);
+    }
+    #home h2 {
+        font-size: 1.3rem;
+    }
+    #home p:not(:first-child) {
+        font-size: 1rem;
+    }
+    section h2 {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* ==========================================================================
+   16. Global Fixes & Overrides
+   ========================================================================== */
+
+#about, #skills, #experience, #projects, #contact {
     background-color: #d3d3d6 !important;
 }
 
+.hero-actions .button {
+    border-radius: 0px !important;
+}
+
+
+/* ==========================================================================
+   17. About Section Layout
+   ========================================================================== */
+
+#about .about-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+#about .about-text {
+    flex: 1;
+}
+#about .about-text p {
+    max-width: 100%;
+    margin-bottom: 20px;
+    color: var(--color-text-muted);
+}
+#about .about-text p:last-child {
+    margin-bottom: 0;
+}
+
+#about .profile-pic {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    #about .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+    #about .profile-pic {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+}

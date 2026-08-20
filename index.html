@@ -105,34 +105,40 @@
 
 
         <!-- About Section -->
-
+        <!-- FIX: Removed wrapper divs. Now text and image are direct children of #about -->
+                <!-- About Section -->
         <section id="about">
-
             <h2>About Me</h2>
+            
+            <div class="about-container">
+                <div class="about-text">
+                    <p>
+                        Hi !!! I am a Data Engineer, with an Electrical & Electronics Engineering background, 
+                        combining strong analytical fundamentals with hands-on experience in Python, 
+                        SQL, and ETL pipelines.  
+                    </p>
 
-            <p>
-                I am a Data Engineer with an Electrical & Electronics Engineering background, 
-                combining strong analytical fundamentals with hands-on experience in Python, 
-                SQL, and ETL pipelines.  
-            </p>
+                    <p>
+                        I enjoy breaking down messy, unstructured data into clean, 
+                        query-ready formats that drive real insights. 
+                    </p>
 
-            <p>
-                I enjoy breaking down messy, unstructured data into clean, 
-                query-ready formats that drive real insights. 
-            </p>
+                    <p>
+                        My engineering training instilled a deep appreciation for logical
+                        design and attention to detail—skills, applied daily to write 
+                        maintainable code and build reliable data workflows.
+                    </p>
 
-            <p>
-                My engineering training instilled a deep appreciation for logical
-                design and attention to detail—skills, applied daily to write 
-                maintainable code and build reliable data workflows.
-            </p>
+                    <p>
+                        Eager to contribute 
+                        to a collaborative team while continuously deepening my expertise in modern data 
+                        technologies.
+                    </p>
+                </div>
 
-            <p>
-                Eager to contribute 
-                to a collaborative team while continuously deepening my expertise in modern data 
-                technologies.
-            </p>
-
+                <!-- Image sits perfectly on the right half -->
+                <img src="assets/images/profile.jpeg" alt="S.M. Shreyas" class="profile-pic">
+            </div>
         </section>
 
 
@@ -163,7 +169,7 @@
                     <!-- Card 2: Databases & Warehousing -->
                     <div class="skill-card-floating">
                         <div class="skill-card-icon"><i class="fas fa-database"></i></div>
-                        <h3>Databases &amp; Warehousing</h3>
+                        <h3>Databases</h3>
                         <ul>
                             <li>Oracle</li>
                             <li>PostgreSQL</li>
@@ -171,15 +177,12 @@
                         </ul>
                     </div>
 
-                    <!-- Card 3: Data Processing & Orchestration -->
+                    <!-- Card 3: Orchestration -->
                     <div class="skill-card-floating">
                         <div class="skill-card-icon"><i class="fas fa-cogs"></i></div>
-                        <h3>Data Processing &amp; Orchestration</h3>
+                        <h3>Orchestration</h3>
                         <ul>
-                            <li>ETL/ELT</li>
-                            <li>Apache Spark (PySpark)</li>
                             <li>Apache Airflow</li>
-                            <li>Apache Kafka</li>
                         </ul>
                     </div>
 
@@ -191,15 +194,20 @@
                             <li>Dimensional Modelling</li>
                             <li>Slowly Changing Dimensions</li>
                             <li>Normalization/Denormalization</li>
+                            <li>Star - Schema</li>
+                            <li>Snowflake - Schema</li>
                         </ul>
                     </div>
 
-                    <!-- Card 5: Libraries & Tools -->
+                    <!-- Card 5: Libraries & Frameworks -->
                     <div class="skill-card-floating">
                         <div class="skill-card-icon"><i class="fas fa-toolbox"></i></div>
-                        <h3>Libraries &amp; Tools</h3>
+                        <h3>Libraries &amp; Frameworks</h3>
                         <ul>
+                            <li>Apache Spark (PySpark)</li>
+                            <li>Apache Kafka (kafka)</li>
                             <li>Pandas</li>
+                            <li>Numpy</li>
                             <li>SQLAlchemy</li>
                             <li>OpenPyXL</li>
                             <li>Camelot</li>
@@ -228,18 +236,18 @@
 
 
         <!-- Experience Section -->
-
         <section id="experience">
-
             <h2>Experience</h2>
 
-
-            <article>
-
+            <!-- Job 1: Point Cross Life Sciences -->
+            <article class="pointcross-card">
                 <h3>Data Intern</h3>
 
                 <p class="experience-company">
-                    Point Cross Life Sciences Pvt. Ltd.
+                    <a href="https://www.linkedin.com/company/pointcross" target="_blank" rel="noopener noreferrer" class="linkedin-link" aria-label="Point Cross Life Sciences on LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <span class="company-name">Point Cross Life Sciences Pvt. Ltd.</span>
                 </p>
 
                 <p class="experience-meta">
@@ -249,47 +257,27 @@
                 </p>
 
                 <p class="experience-skills">
-                    Python · Pandas · Regex · ETL · OpenPyXL · Camelot
+                    Python · Apache Spark · Xbiom™ · Pandas · Regex · ETL · OpenPyXL · Camelot
                 </p>
 
                 <ul>
-
-                    <li>
-                        Extracted and processed 1000+ clinical and non-clinical
-                        pharmaceutical study datasets from PDF reports.
-                    </li>
-
-                    <li>
-                        Developed Python-based ETL workflows to transform, clean,
-                        validate, and standardize extracted data.
-                    </li>
-
-                    <li>
-                        Processed reports covering clinical chemistry, haematology,
-                        urinalysis, macro/micro-observation, and related domains.
-                    </li>
-
-                    <li>
-                        Converted PDF reports into structured Excel files and
-                        unpivoted the data into analytics-ready CSV.
-                    </li>
-
-                    <li>
-                        Performed data quality checks and validation to ensure
-                        data accuracy, consistency, and completeness.
-                    </li>
-
+                    <li>Extracted and processed 1000+ clinical and non-clinical pharmaceutical study datasets from PDF reports.</li>
+                    <li>Developed Python-based ETL workflows to transform, clean, validate, and standardize extracted data.</li>
+                    <li>Processed reports covering clinical chemistry, haematology, urinalysis, macro/micro-observation, and related domains.</li>
+                    <li>Converted PDF reports into structured Excel files and unpivoted the data into analytics-ready CSV.</li>
+                    <li>Performed data quality checks and validation to ensure data accuracy, consistency, and completeness.</li>
                 </ul>
-
             </article>
 
-
-            <article>
-
+            <!-- Job 2: Aroha Technologies -->
+            <article class="aroha-card">
                 <h3>Data Engineer</h3>
 
                 <p class="experience-company">
-                    Aroha Technologies
+                    <a href="https://www.linkedin.com/company/arohatechnologiespvt.ltd./?originalSubdomain=in" target="_blank" rel="noopener noreferrer" class="linkedin-link" aria-label="Aroha Technologies on LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <span class="company-name">Aroha Technologies</span>
                 </p>
 
                 <p class="experience-meta">
@@ -299,43 +287,19 @@
                 </p>
 
                 <p class="experience-skills">
-                    Python · SQL · ETL · Apache Airflow · AWS S3 · Boto3 ·
+                    Python · SQL · ETL · Apache Airflow · Apache Kafka · AWS S3 · Boto3 ·
                     SQLAlchemy · Regex
                 </p>
 
                 <ul>
-
-                    <li>
-                        Wrote and optimized SQL queries to support data extraction,
-                        troubleshooting, and internal reporting.
-                    </li>
-
-                    <li>
-                        Developed a transformation module of an ETL workflow to
-                        process 100+ TXT logs daily into normalized CSV.
-                    </li>
-
-                    <li>
-                        Implemented data cleaning, validation, and normalization
-                        to prepare datasets for downstream analytics.
-                    </li>
-
-                    <li>
-                        Developed reusable Python modules to automate repetitive
-                        data processing tasks and improve workflow efficiency.
-                    </li>
-
-                    <li>
-                        Collaborated with team members to share ETL development
-                        practices and support knowledge transfer on Python.
-                    </li>
-
+                    <li>Wrote and optimized SQL queries to support data extraction, troubleshooting, and internal reporting.</li>
+                    <li>Developed a transformation module of an ETL workflow to process 100+ TXT logs daily into normalized CSV.</li>
+                    <li>Implemented data cleaning, validation, and normalization to prepare datasets for downstream analytics.</li>
+                    <li>Developed reusable Python modules to automate repetitive data processing tasks and improve workflow efficiency.</li>
+                    <li>Collaborated with team members to share ETL development practices and support knowledge transfer on Python.</li>
                 </ul>
-
             </article>
-
         </section>
-
 
         <!-- Projects Section -->
 
@@ -344,8 +308,7 @@
             <h2>Projects</h2>
 
 
-            <article>
-
+            <article class="project-python-utils">
                 <h3>Python Utilities</h3>
 
                 <p>
@@ -379,12 +342,10 @@
                 >
                     View on GitHub →
                 </a>
-
             </article>
 
 
-            <article>
-
+            <article class="project-python-concepts">
                 <h3>Python Concepts</h3>
 
                 <p>
@@ -416,39 +377,64 @@
                 >
                     View on GitHub →
                 </a>
-
             </article>
-
         </section>
 
 
         <!-- Contact Section -->
+                
         <section id="contact">
             <h2>Let's Connect</h2>
-            <p class="contact-subtitle">
-                I'm always open to discussing data engineering, interesting projects, or new opportunities.
-            </p>
+            
+            <blockquote class="contact-quote">
+                I'm always open to discussing data engineering related projects, or opportunities.
+            </blockquote>
+
+            <blockquote class="contact-quote">
+                Thankyou !!! For checking out my portfolio.
+            </blockquote>
+
+            <!-- Quick Get In Touch Form (No placeholders) -->
+            <form class="contact-form" action="https://formspree.io/f/meajvpbd" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">Send Message</button>
+            </form>
 
             <div class="contact-footer-row">
-            <div class="contact-links">
-                <a href="mailto:s.m.shreyas@outlook.com" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="tel:+917828332249" class="contact-btn" onclick="copyPhoneNumber(event, '+917828332249')">
-                    <i class="fas fa-phone-alt"></i> Phone
-                </a>
-                <a href="https://www.linkedin.com/in/s-m-shreyas" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                    <i class="fab fa-linkedin-in"></i> LinkedIn
-                </a>
-                <a href="https://github.com/s-m-shreyas" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-            </div>
+                <div class="contact-links">
+                    <a href="mailto:s.m.shreyas@outlook.com" class="contact-btn">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="tel:+917828332249" class="contact-btn" onclick="copyPhoneNumber(event, '+917828332249')">
+                        <i class="fas fa-phone-alt"></i> Phone
+                    </a>
+                    <a href="https://www.linkedin.com/in/s-m-shreyas" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/s-m-shreyas" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
                 <a href="#home" class="back-to-top">
                     Back to top <span class="bounce-arrow">↑</span>
                 </a>
-            </div
-            </section>
+            </div>
+        </section>
 
     </main>
 
