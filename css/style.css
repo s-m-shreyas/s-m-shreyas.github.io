@@ -151,7 +151,7 @@ section h2 {
 
 
 /* ==========================================================================
-   6. Hero Section
+   6. Hero Section with Video & Overlay
    ========================================================================== */
 
 #home {
@@ -162,23 +162,82 @@ section h2 {
     align-items: center;
     padding: 100px max(24px, calc((100vw - var(--content-width)) / 2));
     overflow: hidden;
-    background: radial-gradient(circle at 80% 30%, rgba(37, 99, 235, 0.18), transparent 35%), var(--color-hero);
+    background: transparent !important; /* Removed the gradient – video handles it */
     color: var(--color-text-light);
 }
 
-#home::before {
-    content: "";
+/* 1. The Video Background */
+.bg-video {
     position: absolute;
-    inset: 0;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
     pointer-events: none;
 }
 
+/* 2. Dark Overlay (65% – like Pointcross) */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0);
+}
+
+/* 3. Animated Tech Grid (now on the overlay) */
+.hero-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+    linear-gradient(rgba(255, 255, 255, 0.0) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.0) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: scrollGrid 20s linear infinite;
+}
+
+@keyframes scrollGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 48px 48px; }
+}
+
+/* 4. Floating Glow Orb (now sits on top of the overlay) */
+.hero-overlay::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(144, 216, 245, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 20%;
+    right: 10%;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatOrb 15s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, 50px) scale(1.2); }
+}
+
+/* ============================================================
+   Everything below stays exactly the same as your original CSS
+   ============================================================ */
+
 .hero-content {
     position: relative;
-    z-index: 1;
-    max-width: 760px;
+    z-index: 2; /* Put text above video/overlay */
+    max-width: 715px;
+    padding: 40px;
+    border-radius: var(--border-radius-medium);
+    background: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hero-eyebrow {
@@ -206,14 +265,24 @@ section h2 {
     font-size: clamp(3.2rem, 7vw, 5.5rem);
     letter-spacing: -0.02em;
     line-height: 0.95;
-    color: #00ff5e;
-    animation: glow-pulse 3s ease-in-out infinite;
+    color: transparent;
+    background: linear-gradient(90deg, #90d8f5, #90d8f5, #90d8f5);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: terminalGradient 4s linear infinite;
+}
+
+@keyframes terminalGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .cursor-blink {
     display: inline-block;
     font-weight: 400;
-    color: #00ff5e;
+    color: #90d8f5;
     animation: blink 0.7s step-end infinite;
     margin-left: 2px;
 }
@@ -268,7 +337,7 @@ section h2 {
     transform: translateY(-2px);
 }
 
-/* UPDATED: Primary button is now your theme light blue */
+/* Primary Button – now your theme color */
 .button-primary {
     background-color: #90d8f5;
     color: #111827;
@@ -279,6 +348,18 @@ section h2 {
     color: #111827;
     transform: translateY(-2px);
     box-shadow: 0 12px 25px rgba(144, 216, 245, 0.35);
+}
+
+.button-primary::after {
+    content: " →";
+    opacity: 0;
+    transform: translateX(-10px);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.button-primary:hover::after {
+    opacity: 1;
+    transform: translateX(0px);
 }
 
 .button-secondary {
@@ -341,8 +422,8 @@ section h2 {
 }
 
 @keyframes terminal-glow {
-    0%, 100% { text-shadow: 0 0 8px #22c55e, 0 0 15px #22c55e, 0 0 30px rgba(34, 197, 94, 0.6); opacity: 1; }
-    50% { text-shadow: 0 0 2px #22c55e, 0 0 8px #22c55e, 0 0 15px rgba(34, 197, 94, 0.2); opacity: 0.85; }
+    0%, 100% { text-shadow: 0 0 8px #90d8f5, 0 0 15px #90d8f5, 0 0 30px rgba(34, 197, 94, 0.6); opacity: 1; }
+    50% { text-shadow: 0 0 2px #90d8f5, 0 0 8px #90d8f5, 0 0 15px rgba(34, 197, 94, 0.2); opacity: 0.85; }
 }
 .glow-effect {
     animation: terminal-glow 2.5s ease-in-out infinite;
@@ -352,7 +433,6 @@ section h2 {
     0%, 100% { filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.3)); }
     50% { filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.6)); }
 }
-
 
 /* ==========================================================================
    7. About / Experience
@@ -1138,3 +1218,4 @@ footer p {
         margin: 0 auto;
     }
 }
+

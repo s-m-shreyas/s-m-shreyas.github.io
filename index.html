@@ -47,12 +47,17 @@
 
     <main>
 
-        <!-- Hero Section -->
-
+                <!-- Hero Section -->
         <section id="home">
+            <!-- 1. Background Video -->
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="assets/videos/pattern-bg.mp4" type="video/mp4">
+            </video>
+
+            <!-- 2. 65% Dark Overlay (So text remains readable) -->
+            <div class="hero-overlay"></div>
 
             <div class="hero-content">
-
                 <p class="hero-eyebrow">
                     DATA ENGINEER
                 </p>
@@ -72,35 +77,19 @@
                 </p>
 
                 <div class="hero-actions">
-
-                    <a
-                        href="#projects"
-                        class="button button-primary"
-                    >
+                    <a href="#projects" class="button button-primary">
                         View Projects
                     </a>
-
-                    <a
-                        href="assets/resume/S_M_Shreyas_DataEngineer_Resume.pdf"
-                        class="button button-secondary"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="assets/resume/S_M_Shreyas_DataEngineer_Resume.pdf" class="button button-secondary" target="_blank" rel="noopener noreferrer">
                         View Resume
                     </a>
-
                 </div>
-
             </div>
 
             <div class="hero-scroll-indicator">
-
                 <span>Scroll to explore</span>
-
                 <span class="scroll-arrow">↓</span>
-
             </div>
-
         </section>
 
 
