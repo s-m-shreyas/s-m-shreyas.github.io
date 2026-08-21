@@ -1227,7 +1227,7 @@ footer p {
 /* ==========================================================================
    16. Global Fixes & Overrides
    ========================================================================== */
-#about, #skills, #experience, #projects, #contact {
+#about, #skills, #experience, #projects, #contact, #rd {
     background-color: #d3d3d6 !important;
 }
 
@@ -1266,4 +1266,188 @@ footer p {
     object-fit: cover;
     border: none;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   PROJECT CARDS - TERMINAL ARROW STYLE (Like Experience)
+   ========================================================================== */
+#projects article ul:not(.project-technologies) {
+    list-style: none;
+    padding-left: 0;
+}
+
+#projects article ul:not(.project-technologies) li {
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 12px;
+    min-height: 1.7em;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#projects article ul:not(.project-technologies) li::before {
+    content: ">";
+    color: #90d8f5 !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+#projects article ul:not(.project-technologies) li.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Ensure the text is white on the dark project cards */
+html #projects article.project-python-concepts ul:not(.project-technologies) li,
+html #projects article.project-python-utils ul:not(.project-technologies) li {
+    color: #fdfdfd !important;
+}
+
+/* ==========================================================================
+   ONGOING R&D / CONTINUOUS LEARNING SECTION
+   ========================================================================== */
+
+#rd {
+    background-color: #d3d3d6 !important;
+}
+
+.rd-card {
+    position: relative;
+    z-index: 0;
+    
+    /* The background image */
+    background-image: url('/assets/images/rnd.png') !important;
+    background-size: cover !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    
+    /* Remove any default solid background */
+    background-color: transparent !important;
+    
+    padding: 28px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-medium);
+    color: #ffffff;
+}
+
+/* The dark overlay (65% opacity) to keep text readable */
+.rd-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.65) !important;
+    border-radius: inherit;
+}
+
+/* Make the subtitle and bullets white/blue to match the project cards */
+.rd-subtitle {
+    color: #90d8f5 !important;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#rd ul li {
+    color: #fdfdfd !important;
+}
+
+.rd-subtitle {
+    color: #90d8f5;
+    font-size: 0.95rem;
+    font-style: normal; /* Removed the italic */
+    font-weight: 700;   /* Added bold */
+    margin-bottom: 20px;
+}
+
+#rd ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#rd ul li {
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 12px;
+    min-height: 1.7em;
+    line-height: 1.7;
+    color: #fdfdfd;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#rd ul li::before {
+    content: ">";
+    color: #90d8f5 !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+#rd ul li.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Progress bar 
+#roadmap {
+    background-color: #d3d3d6 !important;
+}
+.roadmap-card {
+    background: rgba(17, 24, 39, 0.9);
+    color: #ffffff;
+    padding: 28px;
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-medium);
+    margin-top: 24px;
+}
+.roadmap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.progress-text {
+    color: #90d8f5;
+    font-weight: bold;
+}
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.progress-bar {
+    height: 100%;
+    background: #90d8f5;
+    border-radius: 10px;
+}
+.roadmap-tasks {
+    list-style: none;
+    padding-left: 0;
+}
+.roadmap-tasks li {
+    font-family: 'Ubuntu Mono', monospace;
+    margin-bottom: 8px;
+    color: #fdfdfd;
+}
+    */
+
+/* Highlight Active Nav Link */
+nav a.active {
+    color: #90d8f5 !important;
 }

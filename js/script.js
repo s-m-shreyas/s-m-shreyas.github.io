@@ -165,22 +165,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ================================================================
 // TERMINAL PROMPT - SEQUENTIAL APPEARANCE PER CARD
-// Each job card triggers its own arrows independently
+// Now works for BOTH Experience and Project cards!
 // ================================================================
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Get all experience articles (job cards)
-    const experienceArticles = document.querySelectorAll('#experience article');
+    // Get both experience and project articles
+    const articles = document.querySelectorAll('#experience article, #projects article, #rd article');
 
-    experienceArticles.forEach((article) => {
-        // Get all list items within this card
-        const items = article.querySelectorAll('li');
+    articles.forEach((article) => {
+        // Only get the description list items, NOT the technology tags
+        const items = article.querySelectorAll('ul:not(.project-technologies) li');
         if (items.length === 0) return;
 
         let hasTriggered = false;
 
-        // Function to reveal arrows for THIS card only
         function revealArrows() {
             if (hasTriggered) return;
             hasTriggered = true;
@@ -196,7 +195,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Observe when THIS specific card comes into view
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting && !hasTriggered) {
@@ -204,10 +202,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, {
-            threshold: 0.3  // Trigger when 30% of the card is visible
+            threshold: 0.3
         });
 
         observer.observe(article);
     });
+
+});
+
+// ================================================================
+// SCROLL-SPY - Highlight Active Navigation Link
+// ================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function highlightNav() {
+        let scrollY = window.scrollY;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100; // Offset by navbar height
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                navLinks.forEach((link) => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', highlightNav);
+    
+    // Run once on page load in case user refreshes mid-page
+    highlightNav();
 
 });
