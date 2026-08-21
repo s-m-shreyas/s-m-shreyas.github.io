@@ -1,63 +1,39 @@
 /*
  * style.css
- *
  * Main stylesheet for the S.M. Shreyas portfolio website.
  */
-
 
 /* ==========================================================================
    1. Design System
    ========================================================================== */
-
 :root {
-
-    /* Colors */
     --color-background: #dfead4;
     --color-surface: #ffffff;
     --color-surface-alt: #eef1f5;
-
     --color-hero: #111827;
     --color-hero-surface: #1f2937;
-
     --color-text: #172033;
     --color-text-muted: #667085;
-
     --color-text-light: #f8fafc;
     --color-text-light-muted: #cbd5e1;
-
     --color-accent: #2563eb;
     --color-accent-hover: #1d4ed8;
-
     --color-border: #e2e8f0;
 
-    /* Typography */
-    --font-primary:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    --font-primary: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-    /* Layout */
     --content-width: 1120px;
     --section-padding: 96px;
 
-    /* Visual */
     --border-radius-small: 8px;
     --border-radius-medium: 14px;
-
-    --shadow-small:
-        0 4px 12px rgba(15, 23, 42, 0.06);
-    --shadow-medium:
-        0 12px 30px rgba(15, 23, 42, 0.10);
+    --shadow-small: 0 4px 12px rgba(15, 23, 42, 0.06);
+    --shadow-medium: 0 12px 30px rgba(15, 23, 42, 0.10);
 }
 
-
 /* ==========================================================================
-   2. Reset
+   2. Reset & Base
    ========================================================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -75,30 +51,26 @@ body {
     line-height: 1.6;
 }
 
-
-/* ==========================================================================
-   3. Base Elements
-   ========================================================================== */
-
 h1, h2, h3, p {
     margin-top: 0;
 }
+
 h1, h2, h3 {
     line-height: 1.2;
 }
+
 a {
     color: inherit;
 }
+
 img {
     display: block;
     max-width: 100%;
 }
 
-
 /* ==========================================================================
-   4. Navigation
+   3. Navigation
    ========================================================================== */
-
 header {
     position: sticky;
     top: 0;
@@ -117,7 +89,6 @@ nav {
     padding: 20px 24px;
 }
 
-/* UPDATED: Nav items set to hero color */
 nav a {
     color: #111827;
     font-size: 0.95rem;
@@ -126,35 +97,29 @@ nav a {
     transition: color 0.2s ease;
 }
 
-/* UPDATED: Hover color changed to theme color */
 nav a:hover {
-    color: #90d8f5 !important; 
+    color: #90d8f5 !important;
 }
 
-
 /* ==========================================================================
-   5. Common Section Layout
+   4. Common Section Layout
    ========================================================================== */
-
 section {
     width: min(var(--content-width), 100%);
     margin: 0 auto;
     padding: var(--section-padding) 24px;
 }
 
-/* UPDATED: All section headings set to hero color */
 section h2 {
     margin-bottom: 24px;
     font-size: 2rem;
     color: #111827;
 }
 
-
 /* ==========================================================================
-   6. Hero Section with Video & Overlay
+   5. Hero Section
    ========================================================================== */
-
-#home{
+#home {
     position: relative;
     max-width: none;
     height: clamp(560px, 82vh, 820px);
@@ -166,18 +131,18 @@ section h2 {
     overflow: hidden;
 }
 
-#typed-name{
+#typed-name {
     color: #000000;
     text-shadow: 0 0 8px rgb(7, 203, 237);
 }
 
-.glow-effect{
-    color:#90d8f5;
+.glow-effect {
+    color: #90d8f5;
     animation: terminal-glow 2.5s ease-in-out infinite;
 }
 
-/* 1. The Video Background */
-.bg-video{
+/* Video */
+.bg-video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -187,7 +152,7 @@ section h2 {
     transform: scale(1.04);
 }
 
-/* 2. Dark Overlay (65% – like Pointcross) */
+/* Dark Overlay */
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -196,24 +161,19 @@ section h2 {
     background: rgba(255, 255, 255, 0);
 }
 
-/* 3. Animated Tech Grid (now on the overlay) */
+/* Animated Tech Grid */
 .hero-overlay::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image:
-    linear-gradient(rgba(255, 255, 255, 0.0) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.0) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.0) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.0) 1px, transparent 1px);
     background-size: 48px 48px;
     animation: scrollGrid 20s linear infinite;
 }
 
-@keyframes scrollGrid {
-    0% { background-position: 0 0; }
-    100% { background-position: 48px 48px; }
-}
-
-/* 4. Floating Glow Orb (now sits on top of the overlay) */
+/* Floating Glow Orb */
 .hero-overlay::after {
     content: "";
     position: absolute;
@@ -228,29 +188,16 @@ section h2 {
     animation: floatOrb 15s ease-in-out infinite alternate;
 }
 
-@keyframes floatOrb {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-50px, 50px) scale(1.2); }
-}
-
-/* ============================================================
-   Everything below stays exactly the same as your original CSS
-   ============================================================ */
-
-.hero-content{
+/* Hero Content Card */
+.hero-content {
     position: relative;
     z-index: 2;
     width: min(850px, 92vw);
     padding: 32px;
     border-radius: 16px;
-    background: rgba(17,24,39,.58);
+    background: rgba(17, 24, 39, 0.58);
     backdrop-filter: blur(8px);
-    .hero-content{
-    width:100%;
-    max-width:100%;
-    padding:22px;
-    margin:0;
-}
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-eyebrow {
@@ -271,59 +218,8 @@ section h2 {
     background-color: #60a5fa;
 }
 
-#home h1{
-    font-size:5rem;
-}
-
-#home h2{
-    font-size:1.5rem;
-}
-
-.hero-description{
-    font-size:1.05rem;
-}
-
-@media(max-width:992px){
-
-    #home h1{
-        font-size:4rem;
-    }
-
-}
-
-@media(max-width:768px){
-
-    #home h1{
-        font-size:2.6rem;
-    }
-
-    #home h2{
-        font-size:1rem;
-    }
-
-    .hero-description{
-        font-size:.95rem;
-    }
-
-}
-
-@keyframes terminalGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.cursor-blink {
-    display: inline-block;
-    font-weight: 400;
-    color: #3f8296;
-    animation: blink 0.7s step-end infinite;
-    margin-left: 2px;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+#home h1 {
+    font-size: 5rem;
 }
 
 #home h2 {
@@ -336,7 +232,7 @@ section h2 {
 
 #home h2 span {
     margin: 0 8px;
-    color: #60a5fa;
+    color: #90d8f5;
 }
 
 .hero-description {
@@ -371,12 +267,17 @@ section h2 {
     transform: translateY(-2px);
 }
 
-/* Primary Button – now your theme color */
 .button-primary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     background-color: #90d8f5;
     color: #111827;
     box-shadow: 0 8px 20px rgba(144, 216, 245, 0.25);
 }
+
 .button-primary:hover {
     background-color: #ffffff;
     color: #111827;
@@ -385,15 +286,19 @@ section h2 {
 }
 
 .button-primary::after {
-    content: " →";
+    content: "→";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
     opacity: 0;
-    transform: translateX(-10px);
-    display: inline-block;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
 }
+
 .button-primary:hover::after {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(-50%) translateX(0);
 }
 
 .button-secondary {
@@ -401,6 +306,7 @@ section h2 {
     background-color: rgba(255, 255, 255, 0.03);
     color: #f8fafc;
 }
+
 .button-secondary:hover {
     border-color: #64748b;
     background-color: rgba(255, 255, 255, 0.08);
@@ -414,14 +320,17 @@ section h2 {
     color: #94a3b8;
     font-size: 0.9rem;
 }
+
 .hero-links a {
     color: #cbd5e1;
     text-decoration: none;
     transition: color 0.2s ease;
 }
+
 .hero-links a:hover {
     color: #93c5fd;
 }
+
 .hero-links span {
     color: #475569;
 }
@@ -445,22 +354,41 @@ section h2 {
     animation: scroll-bounce 1.8s ease-in-out infinite;
 }
 
-@keyframes scroll-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
-}
-
 .bounce-arrow {
     display: inline-block;
     animation: scroll-bounce 1.8s ease-in-out infinite;
 }
 
+/* Keyframes used in hero */
+@keyframes scrollGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 48px 48px; }
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, 50px) scale(1.2); }
+}
+
+@keyframes scroll-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+@keyframes terminalGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 @keyframes terminal-glow {
     0%, 100% { text-shadow: 0 0 8px #90d8f5, 0 0 15px #90d8f5, 0 0 30px rgba(34, 197, 94, 0.6); opacity: 1; }
     50% { text-shadow: 0 0 2px #90d8f5, 0 0 8px #90d8f5, 0 0 15px rgba(34, 197, 94, 0.2); opacity: 0.85; }
-}
-.glow-effect {
-    animation: terminal-glow 2.5s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
@@ -469,9 +397,8 @@ section h2 {
 }
 
 /* ==========================================================================
-   7. About / Experience
+   6. About / Experience / Contact Backgrounds
    ========================================================================== */
-
 #about, #experience, #contact {
     background-color: var(--color-background);
 }
@@ -483,39 +410,45 @@ section h2 {
     font-size: 1.05rem;
 }
 
+/* ==========================================================================
+   7. Experience Meta & Skills
+   ========================================================================== */
 #experience .experience-meta {
     margin-bottom: 16px;
     color: var(--color-text-muted);
     font-size: 0.9rem;
 }
+
 #experience .experience-meta span {
     margin: 0 6px;
     color: var(--color-accent);
 }
+
 #experience .experience-skills {
     margin-bottom: 20px;
     color: var(--color-accent);
     font-size: 0.9rem;
     font-weight: 600;
 }
+
 #experience article ul {
     margin: 0;
     padding-left: 20px;
 }
+
 #experience article li {
     margin-bottom: 10px;
     color: var(--color-text-muted);
     line-height: 1.7;
 }
+
 #experience article li:last-child {
     margin-bottom: 0;
 }
 
-
 /* ==========================================================================
-   8. Skills - Horizontal Scroll (Floating Cards) with Server Room BG
+   8. Skills Section
    ========================================================================== */
-
 #skills {
     background-color: var(--color-surface);
 }
@@ -544,7 +477,7 @@ section h2 {
     -webkit-overflow-scrolling: touch;
     flex: 1;
     scrollbar-width: thin;
-    scrollbar-color: #111827 var(--color-border); /* UPDATED: Thumb is Hero color, track is border color */
+    scrollbar-color: #111827 var(--color-border);
 
     background-image: url('/assets/images/server-room.jpg') !important;
     background-size: cover !important;
@@ -553,17 +486,17 @@ section h2 {
     background-attachment: scroll !important;
 }
 
-
-
 .skills-scroll-track::-webkit-scrollbar {
     height: 6px;
 }
+
 .skills-scroll-track::-webkit-scrollbar-track {
     background: var(--color-border);
     border-radius: 10px;
 }
+
 .skills-scroll-track::-webkit-scrollbar-thumb {
-    background: #111827 !important; /* UPDATED: The scroll handle is now the Hero dark navy */
+    background: #111827 !important;
     border-radius: 10px;
 }
 
@@ -652,22 +585,22 @@ section h2 {
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     z-index: 2;
 }
+
 .scroll-arrow-btn:hover {
-    background: #111827 !important; /* UPDATED: Now matches Hero color on hover */
+    background: #111827 !important;
     color: #fff;
     border-color: #111827 !important;
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
+
 .scroll-arrow-btn:active {
     transform: scale(0.95);
 }
 
-
 /* ==========================================================================
    9. Experience Cards & Terminal Bullets
    ========================================================================== */
-
 #experience article {
     position: relative;
     z-index: 0;
@@ -681,11 +614,11 @@ section h2 {
     border-radius: var(--border-radius-medium);
     box-shadow: var(--shadow-small);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 #experience article.pointcross-card {
-    background-image: url('/assets/images/pointcross-bg.jpeg') !important; 
+    background-image: url('/assets/images/pointcross-bg.jpeg') !important;
     background-size: cover !important;
     background-position: center bottom !important;
     background-repeat: no-repeat !important;
@@ -694,7 +627,7 @@ section h2 {
 }
 
 #experience article.aroha-card {
-    background-image: url('/assets/images/aroha-bg.jpeg') !important; 
+    background-image: url('/assets/images/aroha-bg.jpeg') !important;
     background-size: cover !important;
     background-position: center bottom !important;
     background-repeat: no-repeat !important;
@@ -724,28 +657,33 @@ section h2 {
 #experience article.aroha-card li {
     color: #fdfdfd !important;
 }
+
 #experience article.pointcross-card .experience-skills,
 #experience article.aroha-card .experience-skills {
     color: #90d8f5 !important;
 }
+
 #experience article.pointcross-card .experience-company .company-name,
 #experience article.aroha-card .experience-company .company-name {
     color: #ffffff !important;
 }
+
 #experience article.pointcross-card .linkedin-link i,
 #experience article.aroha-card .linkedin-link i {
     color: #90d8f5 !important;
 }
+
 #experience article.pointcross-card .experience-meta span,
 #experience article.aroha-card .experience-meta span {
     color: #90d8f5 !important;
 }
 
-/* Terminal Bullet Points */
+/* Terminal bullet points */
 #experience article ul {
     list-style: none;
     padding-left: 0;
 }
+
 #experience article li {
     padding-left: 28px;
     position: relative;
@@ -757,6 +695,7 @@ section h2 {
     transform: translateX(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 #experience article li::before {
     content: ">";
     color: #90d8f5 !important;
@@ -767,31 +706,31 @@ section h2 {
     font-weight: 700;
     font-size: 1.1em;
 }
+
 #experience article li.visible {
     opacity: 1;
     transform: translateX(0);
 }
 
-.terminal-cursor-blink {
+.cursor-blink {
     display: inline-block;
     font-weight: 400;
-    color: #90d8f5 !important;
+    color: #5b9ea6;
     animation: blink 0.7s step-end infinite;
     margin-left: 2px;
-    font-family: 'Ubuntu Mono', monospace;
 }
 
 
 /* ==========================================================================
-   10. Company Name with LinkedIn Link
+   10. Company & LinkedIn Link
    ========================================================================== */
-
 .experience-company {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 4px;
 }
+
 .linkedin-link {
     display: inline-flex;
     align-items: center;
@@ -802,34 +741,39 @@ section h2 {
     line-height: 1;
     transition: transform 0.2s ease;
 }
+
 .linkedin-link i {
     color: #0a66c2 !important;
     transition: transform 0.2s ease, filter 0.2s ease;
 }
+
 .linkedin-link:hover i {
     transform: scale(1.15);
     filter: brightness(0.8);
 }
+
 .linkedin-link:active i {
     transform: scale(0.95);
 }
-.linkedin-link, .linkedin-link * {
+
+.linkedin-link,
+.linkedin-link * {
     text-decoration: none !important;
 }
+
 .company-name {
     color: var(--color-text);
     font-weight: 600;
     font-size: 1rem;
 }
 
-
 /* ==========================================================================
    11. Projects
    ========================================================================== */
-
 #projects {
     background-color: var(--color-surface);
 }
+
 #projects article {
     margin-bottom: 24px;
     padding: 28px;
@@ -839,17 +783,21 @@ section h2 {
     box-shadow: var(--shadow-small);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 #projects article:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
 }
+
 #projects article h3 {
     margin-bottom: 12px;
 }
+
 #projects article p {
     margin-bottom: 0;
     color: var(--color-text-muted);
 }
+
 #projects .project-technologies {
     display: flex;
     flex-wrap: wrap;
@@ -858,6 +806,7 @@ section h2 {
     padding: 0;
     list-style: none;
 }
+
 #projects .project-technologies li {
     padding: 7px 11px;
     border: 1px solid var(--color-border);
@@ -867,12 +816,14 @@ section h2 {
     font-size: 0.85rem;
     font-weight: 500;
 }
+
 #projects .project-link {
     display: inline-block;
     color: var(--color-accent);
     font-weight: 600;
     text-decoration: none;
 }
+
 #projects .project-link:hover {
     color: var(--color-accent-hover);
     text-decoration: underline;
@@ -892,14 +843,17 @@ html #projects article.project-python-utils {
     border-radius: var(--border-radius-medium);
     box-shadow: var(--shadow-small);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    color: #ffffff !important; 
+    color: #ffffff !important;
 }
+
 html #projects article.project-python-concepts {
     background-image: url('/assets/images/python.jpg') !important;
 }
+
 html #projects article.project-python-utils {
     background-image: url('/assets/images/python-utils-bg.png') !important;
 }
+
 html #projects article.project-python-concepts::before,
 html #projects article.project-python-concepts::after,
 html #projects article.project-python-utils::before,
@@ -909,29 +863,35 @@ html #projects article.project-python-utils::after {
     background: none !important;
     opacity: 0 !important;
 }
+
 html #projects article.project-python-concepts:hover,
 html #projects article.project-python-utils:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
 }
+
 html #projects article.project-python-concepts h3,
 html #projects article.project-python-utils h3 {
     color: #90d8f5 !important;
     margin-bottom: 12px;
 }
+
 html #projects article.project-python-concepts p,
 html #projects article.project-python-utils p {
     color: #fdfdfd !important;
 }
+
 html #projects article.project-python-concepts .project-link,
 html #projects article.project-python-utils .project-link {
     color: #90d8f5 !important;
 }
+
 html #projects article.project-python-concepts .project-link:hover,
 html #projects article.project-python-utils .project-link:hover {
     color: #ffffff !important;
     text-decoration: underline;
 }
+
 html #projects article.project-python-concepts .project-technologies li,
 html #projects article.project-python-utils .project-technologies li {
     background-color: rgba(255, 255, 255, 0.15) !important;
@@ -939,14 +899,13 @@ html #projects article.project-python-utils .project-technologies li {
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
-
 /* ==========================================================================
    12. Contact (Centered Form & Quote)
    ========================================================================== */
-
 #contact {
     text-align: center;
 }
+
 #contact .contact-quote {
     text-align: center;
     margin: 0 auto 32px auto;
@@ -971,6 +930,7 @@ html #projects article.project-python-utils .project-technologies li {
     box-shadow: var(--shadow-small);
     text-align: left;
 }
+
 .contact-form::before {
     content: '';
     position: absolute;
@@ -981,13 +941,14 @@ html #projects article.project-python-utils .project-technologies li {
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    background-color: rgba(0, 0, 0, 0.65) !important;
+    background-color: rgba(0, 0, 0, 0.431) !important;
     background-blend-mode: multiply !important;
 }
 
 .form-group {
     margin-bottom: 18px;
 }
+
 .form-group label {
     display: block;
     color: #90d8f5;
@@ -995,6 +956,7 @@ html #projects article.project-python-utils .project-technologies li {
     font-weight: 500;
     margin-bottom: 6px;
 }
+
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -1008,11 +970,13 @@ html #projects article.project-python-utils .project-technologies li {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
 }
+
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: #90d8f5;
     box-shadow: 0 0 0 3px rgba(144, 216, 245, 0.15);
 }
+
 .form-submit-btn {
     width: 100%;
     padding: 12px;
@@ -1026,20 +990,20 @@ html #projects article.project-python-utils .project-technologies li {
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 12px rgba(144, 216, 245, 0.2);
 }
+
 .form-submit-btn:hover {
     background-color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(144, 216, 245, 0.3);
 }
+
 .form-submit-btn:active {
     transform: scale(0.98);
 }
 
-
 /* ==========================================================================
    13. Contact Links (Logos) & Back to Top
    ========================================================================== */
-
 .contact-footer-row {
     display: flex;
     justify-content: center;
@@ -1057,19 +1021,20 @@ html #projects article.project-python-utils .project-technologies li {
     margin-bottom: 0;
 }
 
-/* UPDATED: Logos now match the dark color of Hero */
 .contact-btn {
-    color: #111827 !important; 
+    color: #111827 !important;
     text-decoration: none;
     transition: color 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 6px;
 }
+
 .contact-btn:hover,
 .contact-btn:hover i {
-    color: #90d8f5 !important; /* Theme color on hover */
+    color: #90d8f5 !important;
 }
+
 .contact-btn i {
     font-size: 1.5rem;
     transition: color 0.2s ease;
@@ -1077,28 +1042,28 @@ html #projects article.project-python-utils .project-technologies li {
 
 .back-to-top {
     color: var(--color-text-muted);
-    font-size: 0.9rem;
+    font-size: 1.15rem;
     font-weight: 400;
     text-decoration: none;
     white-space: nowrap;
     transition: color 0.2s ease;
 }
+
 .back-to-top:hover {
-    color: #90d8f5 !important; 
+    color: #90d8f5 !important;
     text-decoration: none;
 }
-
 
 /* ==========================================================================
    14. Footer & Toast
    ========================================================================== */
-
 footer {
     padding: 28px 24px;
     background-color: var(--color-hero);
     color: var(--color-text-light-muted);
     text-align: center;
 }
+
 footer p {
     margin: 0;
     font-size: 0.9rem;
@@ -1122,9 +1087,131 @@ footer p {
     pointer-events: none;
     white-space: nowrap;
 }
+
 .toast-notification.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   15. Responsive
+   ========================================================================== */
+@media (max-width: 1200px) {
+    #home {
+        height: 700px;
+    }
+
+    .hero-content {
+        width: min(735px, 92vw);
+        padding: 10px 42px;
+    }
+
+    #home h1 {
+        font-size: 4rem;
+    }
+
+    .skills-scroll-track {
+        background-size: 110% auto !important;
+        background-position: center center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    #home {
+        height: 600px;
+        min-height: 600px;
+        padding: 70px 20px 30px;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 22px 26px;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+        line-height: 1.05;
+    }
+
+    #home h2 {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+
+    .skills-scroll-track {
+        background-size: 140% auto !important;
+        background-position: center center !important;
+        padding: 12px 8px 20px;
+    }
+
+    #about .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    #about .profile-pic {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+}
+
+@media (pointer: coarse) and (min-width: 769px) {
+    #home {
+        height: 520px;
+        min-height: 520px;
+        padding: 50px 20px;
+    }
+
+    .hero-content {
+        width: 680px;
+        max-width: 92vw;
+        padding: 24px 32px;
+    }
+
+    #home h1 {
+        font-size: 2.8rem;
+    }
+
+    #home h2 {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .hero-actions {
+        gap: 8px;
+    }
+
+    .skills-scroll-track {
+        background-size: 115% auto !important;
+        background-position: center center !important;
+        padding: 12px 8px 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1137,128 +1224,9 @@ footer p {
     }
 }
 
-
-/* ==========================================================================
-   15. Responsive (Refactored)
-   ========================================================================== */
-
-/* ---------- Laptop ---------- */
-
-@media (max-width:1200px){
-
-    #home{
-        height:700px;
-    }
-
-    .hero-content{
-        width:min(735px,92vw);   /* wider hero card */
-        padding:10px 42px;
-    }
-
-    #home h1{
-        font-size:4rem;
-    }
-
-    .skills-scroll-track{
-        background-size:110% auto !important;
-        background-position:center center !important;
-    }
-}
-
-/* ---------- Phones ---------- */
-
-@media (max-width:768px){
-
-    html,body{
-        overflow-x:hidden;
-    }
-
-    #home{
-        height:600px;
-        min-height:600px;
-        padding:70px 20px 30px;
-    }
-
-    .hero-content{
-        width:100%;
-        max-width:100%;
-        padding:22px 26px;
-    }
-
-    #home h1{
-        font-size:2.5rem;
-        line-height:1.05;
-    }
-
-    #home h2{
-        font-size:1rem;
-    }
-
-    .hero-description{
-        font-size:.95rem;
-    }
-
-    .hero-actions{
-        flex-direction:column;
-    }
-
-    .button{
-        width:100%;
-    }
-
-    .hero-scroll-indicator{
-        display:none;
-    }
-
-    .skills-scroll-track{
-        background-size:140% auto !important;
-        background-position:center center !important;
-        padding:12px 8px 20px;
-    }
-}
-
-/* ---------- Chrome Desktop Site on Phones ---------- */
-
-@media (pointer:coarse) and (min-width:769px){
-
-    #home{
-        height:520px;
-        min-height:520px;
-        padding:50px 20px;
-    }
-
-    .hero-content{
-        width:680px;          /* increased from 540px */
-        max-width:92vw;
-        padding:24px 32px;
-    }
-
-    #home h1{
-        font-size:2.8rem;
-    }
-
-    #home h2{
-        font-size:1rem;
-    }
-
-    .hero-description{
-        font-size:.9rem;
-    }
-
-    .hero-actions{
-        gap:8px;
-    }
-
-    .skills-scroll-track{
-        background-size:115% auto !important;
-        background-position:center center !important;
-        padding:12px 8px 20px;
-    }
-}
 /* ==========================================================================
    16. Global Fixes & Overrides
    ========================================================================== */
-
 #about, #skills, #experience, #projects, #contact {
     background-color: #d3d3d6 !important;
 }
@@ -1267,11 +1235,9 @@ footer p {
     border-radius: 0px !important;
 }
 
-
 /* ==========================================================================
    17. About Section Layout
    ========================================================================== */
-
 #about .about-container {
     display: flex;
     gap: 40px;
@@ -1281,11 +1247,13 @@ footer p {
 #about .about-text {
     flex: 1;
 }
+
 #about .about-text p {
     max-width: 100%;
     margin-bottom: 20px;
     color: var(--color-text-muted);
 }
+
 #about .about-text p:last-child {
     margin-bottom: 0;
 }
@@ -1299,20 +1267,3 @@ footer p {
     border: none;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-
-@media (max-width: 768px) {
-    #about .about-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 24px;
-    }
-    #about .profile-pic {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-    }
-}
-
-
-
