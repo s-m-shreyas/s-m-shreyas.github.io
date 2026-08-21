@@ -161,9 +161,19 @@ section h2 {
     min-height: 560px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 80px 24px;
     overflow: hidden;
+}
+
+#typed-name{
+    color: #000000;
+    text-shadow: 0 0 8px rgb(7, 203, 237);
+}
+
+.glow-effect{
+    color:#90d8f5;
+    animation: terminal-glow 2.5s ease-in-out infinite;
 }
 
 /* 1. The Video Background */
@@ -209,7 +219,7 @@ section h2 {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(144, 216, 245, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(144, 216, 245, 0.15) 0%, transparent 0%);
     border-radius: 50%;
     top: 20%;
     right: 10%;
@@ -230,11 +240,17 @@ section h2 {
 .hero-content{
     position: relative;
     z-index: 2;
-    width: min(720px, 92vw);
+    width: min(850px, 92vw);
     padding: 32px;
     border-radius: 16px;
     background: rgba(17,24,39,.58);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    .hero-content{
+    width:100%;
+    max-width:100%;
+    padding:22px;
+    margin:0;
+}
 }
 
 .hero-eyebrow {
@@ -300,7 +316,7 @@ section h2 {
 .cursor-blink {
     display: inline-block;
     font-weight: 400;
-    color: #90d8f5;
+    color: #3f8296;
     animation: blink 0.7s step-end infinite;
     margin-left: 2px;
 }
@@ -532,10 +548,12 @@ section h2 {
 
     background-image: url('/assets/images/server-room.jpg') !important;
     background-size: cover !important;
-    background-position: center !important;
-    background-attachment: fixed !important;
+    background-position: center center !important;
     background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
 }
+
+
 
 .skills-scroll-track::-webkit-scrollbar {
     height: 6px;
@@ -1123,19 +1141,27 @@ footer p {
 /* ==========================================================================
    15. Responsive (Refactored)
    ========================================================================== */
-/* ---------- Laptop & Chrome Desktop Site ---------- */
+
+/* ---------- Laptop ---------- */
 
 @media (max-width:1200px){
+
     #home{
         height:700px;
     }
 
     .hero-content{
-        width:min(680px,92vw);
+        width:min(735px,92vw);   /* wider hero card */
+        padding:10px 42px;
     }
 
     #home h1{
         font-size:4rem;
+    }
+
+    .skills-scroll-track{
+        background-size:110% auto !important;
+        background-position:center center !important;
     }
 }
 
@@ -1156,7 +1182,7 @@ footer p {
     .hero-content{
         width:100%;
         max-width:100%;
-        padding:22px;
+        padding:22px 26px;
     }
 
     #home h1{
@@ -1183,6 +1209,12 @@ footer p {
     .hero-scroll-indicator{
         display:none;
     }
+
+    .skills-scroll-track{
+        background-size:140% auto !important;
+        background-position:center center !important;
+        padding:12px 8px 20px;
+    }
 }
 
 /* ---------- Chrome Desktop Site on Phones ---------- */
@@ -1196,8 +1228,9 @@ footer p {
     }
 
     .hero-content{
-        width:540px;
-        padding:22px;
+        width:680px;          /* increased from 540px */
+        max-width:92vw;
+        padding:24px 32px;
     }
 
     #home h1{
@@ -1214,6 +1247,12 @@ footer p {
 
     .hero-actions{
         gap:8px;
+    }
+
+    .skills-scroll-track{
+        background-size:115% auto !important;
+        background-position:center center !important;
+        padding:12px 8px 20px;
     }
 }
 /* ==========================================================================
