@@ -1057,13 +1057,14 @@ html #projects article.project-python-utils .project-technologies li {
 /* ==========================================================================
    14. Footer & Toast
    ========================================================================== */
+
+/* UPDATED: Footer background is now theme light blue, text is dark navy */
 footer {
     padding: 28px 24px;
-    background-color: var(--color-hero);
-    color: var(--color-text-light-muted);
+    background-color: #90d8f5;
+    color: #111827;
     text-align: center;
 }
-
 footer p {
     margin: 0;
     font-size: 0.9rem;
@@ -1087,12 +1088,20 @@ footer p {
     pointer-events: none;
     white-space: nowrap;
 }
-
 .toast-notification.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
+@media (max-width: 480px) {
+    .toast-notification {
+        white-space: normal;
+        max-width: 90%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
 /* ==========================================================================
    15. Responsive
    ========================================================================== */
